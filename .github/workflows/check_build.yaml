@@ -1,0 +1,16 @@
+name: Test build Docusaurus source for Pull Requests
+
+on: [push]
+
+jobs:
+  test_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Docusaurus from source
+        run: npm run build
