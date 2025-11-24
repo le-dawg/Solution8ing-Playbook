@@ -1,15 +1,15 @@
-⚠️❗ __The engineering playbook is now deployed at [playbook.truss.dev](https://playbook.truss.dev/) using [Docusaurus](https://docusaurus.io/).
+⚠️❗ __The engineering playbook is now deployed at [not deployed] using [Docusaurus](https://docusaurus.io/).
 We recommend you read it there.
 Links and formatting from the old layout may be broken.
-Known problems are reported to [GitHub issues](https://github.com/trussworks/Engineering-Playbook/issues).
+Known problems are reported to [GitHub issues](https://github.com/solution8-com/Engineering-Playbook/issues).
 Feel free to open a PR if you see something that can be fixed.
 Thanks for your patience!__ ❗⚠️
 
 # Engineering Playbook
 
-[![Build](https://github.com/TrussWorks/Engineering-Playbook/actions/workflows/pre_commit.yaml/badge.svg)](https://github.com/TrussWorks/Engineering-Playbook/actions/workflows/pre_commit.yaml)
+[![Build](https://github.com/solution8-com/Engineering-Playbook/actions/workflows/pre_commit.yaml/badge.svg)](https://github.com/solution8-com/Engineering-Playbook/actions/workflows/pre_commit.yaml)
 
-[![Deployment](https://github.com/TrussWorks/Engineering-Playbook/actions/workflows/deploy.yaml/badge.svg)](https://github.com/TrussWorks/Engineering-Playbook/actions/workflows/deploy.yaml)
+[![Deployment](https://github.com/solution8-com/Engineering-Playbook/actions/workflows/deploy.yaml/badge.svg)](https://github.com/solution8-com/Engineering-Playbook/actions/workflows/deploy.yaml)
 
 ## Purpose
 
@@ -46,7 +46,7 @@ We build and deploy these docs using [Docusaurus](https://docusaurus.io/), a Rea
 1. Clone the repo onto your machine and `cd` into it:
 
    ```
-   git clone https://github.com/trussworks/Engineering-Playbook.git && cd Engineering-Playbook
+   git clone https://github.com/solution8-com/Solution8ing-Playbook.git && cd Solution8ing-Playbook
    ```
 
 ### Install Dependencies
@@ -61,76 +61,6 @@ brew install nodenv
 brew install pre-commit
 pre-commit install
 ```
-
-#### With `fresh-brew`
-
-```shell
-bash <(curl -s https://raw.githubusercontent.com/trussworks/fresh-brew/main/fresh-press)
-```
-
-If you're using the Fish shell, run this command instead:
-
-```shell
-bash (curl -s https://raw.githubusercontent.com/trussworks/fresh-brew/main/fresh-press | psub)
-```
-
-This command will install Homebrew if you don't already have it, or update it
-if you already have it. It will also install or update `git` and the GitHub CLI,
-as well as the dependencies that are specific to this project, as defined in
-`fresh-brew.local` and `Brewfile.local`. Finally, it will launch the MilMove docs
-website for you. Read more about the script by visiting the repo:
-[trussworks/fresh-brew](https://github.com/trussworks/fresh-brew).
-
-If the script fails, pay attention to any errors or warnings from Homebrew in
-the terminal. Homebrew usually provides detailed instructions for fixing things,
-so read them carefully and follow their instructions. For example, a common issue
-is missing or outdated Command Line Tools. The message looks like this:
-
-```
-Warning: A newer Command Line Tools release is available.
-Update them from Software Update in System Preferences or run:
-  softwareupdate --all --install --force
-
-If that doesn't show you any updates, run:
-  sudo rm -rf /Library/Developer/CommandLineTools
-  sudo xcode-select --install
-
-Alternatively, manually download them from:
-  https://developer.apple.com/download/more/.
-```
-
-If you see this, follow the instructions, then quit and restart your terminal
-once the Command Line Tools are installed, and run the setup script above again.
-
-#### With Nix
-
-1. Install or update Homebrew using the same script as in the previous section,
-   but without running the `*.local` scripts:
-
-```shell
-export SKIP_LOCAL=true
-bash <(curl -s https://raw.githubusercontent.com/trussworks/fresh-brew/main/fresh-press)
-```
-
-For Fish shell:
-
-```shell
-export SKIP_LOCAL=true
-bash (curl -s https://raw.githubusercontent.com/trussworks/fresh-brew/main/fresh-press | psub)
-```
-
-1. Install Nix if you don't already have it:
-
-```
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --no-daemon
-```
-
-Note: if you're using the Fish shell, you'll need to [complete an extra step](https://github.com/trussworks/Engineering-Playbook/tree/main/developing/nix#extra-setup-only-fish-shell-users).
-
-1. Quit and restart your terminal
-1. Run `direnv allow`
-1. Run `nix/update.sh`
-
 ### Run the server
 
 ```
@@ -139,7 +69,7 @@ npm start
 ```
 
 The site should load automatically in your browser at
-[http://localhost:4000/Engineering-Playbook/](http://localhost:4000/Engineering-Playbook/).
+[http://localhost:4000/Solution8ing-Playbook/](http://localhost:4000/Engineering-Playbook/).
 
 If you would like to enable the local search, use the production build instead:
 
@@ -150,7 +80,7 @@ npm run serve
 
 ## Deployment
 
-This site is currently deployed using GitHub pages: [https://trussworks.github.io/Engineering-Playbook/](https://trussworks.github.io/Engineering-Playbook/). We're using GitHub actions to redeploy whenever changes are merged to the main branch, which includes all commits that are made and saved directly in GitHub.
+This site is currently deployed using GitHub pages: [https://solution8-com.github.io/Engineering-Playbook/](https://solution8-com.github.io/Engineering-Playbook/). We're using GitHub actions to redeploy whenever changes are merged to the main branch, which includes all commits that are made and saved directly in GitHub.
 
 Be aware that GitHub pages has a _soft_ limit of 10 deploys per hour, and it is possible we could run up against this (read more about the limitations of pages here: [About GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#usage-limits)). It should not have a significant affect on our day-to-day activities, however, and may never become a noticeable issue.
 
