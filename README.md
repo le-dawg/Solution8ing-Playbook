@@ -61,6 +61,7 @@ brew install nodenv
 brew install pre-commit
 pre-commit install
 ```
+
 ### Run the server
 
 ```
