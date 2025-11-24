@@ -14,7 +14,7 @@ This is the **Truss Engineering Playbook**, a Docusaurus-based documentation web
 
 ### Installation
 
-**IMPORTANT:** `npm install` will FAIL with the default command due to React peer dependency conflicts between Docusaurus v2 and the search plugin. You MUST use:
+**IMPORTANT:** `npm install` will FAIL in most environments with the default command due to React peer dependency conflicts between Docusaurus v2 and the search plugin. You MUST use:
 
 ```bash
 npm install --legacy-peer-deps
@@ -220,7 +220,7 @@ pre-commit run --all-files
 - **Node.js:** 18.19.1 (from .node-version)
 - **npm:** No specific version locked
 - **Docusaurus:** ^2.3.0
-- **React:** 17.0.2 (older version - causes peer dep conflicts)
+- **React:** 17.0.2 (required by Docusaurus v2, causes peer dep conflicts with newer plugins)
 - **Search:** @easyops-cn/docusaurus-search-local ^0.52.0
 - **MDX:** @mdx-js/react 1.6.22
 - **Mermaid:** mdx-mermaid ^1.3.2 (for diagrams)
