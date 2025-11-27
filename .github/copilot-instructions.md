@@ -70,9 +70,9 @@ The build will show these warnings - they are NOT errors:
 The repository has 4 CI workflows that run on every push/PR:
 
 1. **pre_commit.yaml** - Runs pre-commit hooks (markdown linting, formatting, etc.)
-2. **check_build.yaml** - Tests that `npm install && npm run build` succeeds
-3. **check_prose.yaml** - Vale linter for spelling and prose style (only on modified files)
-4. **deploy.yaml** - Deploys to GitHub Pages (main branch only)
+1. **check_build.yaml** - Tests that `npm install && npm run build` succeeds
+1. **check_prose.yaml** - Vale linter for spelling and prose style (only on modified files)
+1. **deploy.yaml** - Deploys to GitHub Pages (main branch only)
 
 **All PRs must pass pre_commit.yaml and check_build.yaml to be merged.**
 
@@ -112,6 +112,7 @@ Vale configuration in `.vale.ini` uses custom styles from `/vale` directory. Onl
 ### Key Directories
 
 - **`/docs/`** - All documentation content (152+ markdown files)
+
   - `docs/developing/` - Developer tools & practices
   - `docs/web/` - Web development guides
   - `docs/infrasec/` - Infrastructure & security
@@ -122,16 +123,19 @@ Vale configuration in `.vale.ini` uses custom styles from `/vale` directory. Onl
   - `docs/compliance.md` - Federal compliance overview
 
 - **`/src/`** - React components and pages (rarely modified)
+
   - `src/pages/` - Custom pages
   - `src/components/` - React components
   - `src/css/` - Custom CSS
   - `src/theme/` - Docusaurus theme overrides
 
 - **`/static/`** - Images and static assets
+
   - Add screenshots and images here
   - Referenced in docs with `/img/filename.png`
 
 - **`/utils/`** - Redirect configuration utilities
+
   - `redirect-adrs.js` - ADR redirects
   - `redirect-appeng.js` - AppEng redirects
 
@@ -140,6 +144,7 @@ Vale configuration in `.vale.ini` uses custom styles from `/vale` directory. Onl
 ### Key Configuration Files
 
 - **`docusaurus.config.js`** - Main Docusaurus configuration
+
   - Site title, URL, organization settings
   - Theme configuration
   - Plugin configuration (redirects, search)
@@ -150,12 +155,14 @@ Vale configuration in `.vale.ini` uses custom styles from `/vale` directory. Onl
 - **`.node-version`** - Node.js version (18.19.1) - used by GitHub Actions
 
 - **`package.json`** - npm dependencies and scripts
+
   - No test scripts defined
   - Uses Docusaurus scripts for build/dev
 
 - **`.markdownlintrc`** - Markdown linting rules (JSON format)
 
 - **`.gitignore`** - Excludes:
+
   - `/node_modules`, `/build`, `.docusaurus`, `.cache-loader`
   - `.nix-hash`, `.npmglobal` (Nix-related)
   - IDE files (`.idea`, `.vscode`, `*.swp`)
@@ -172,10 +179,10 @@ Vale configuration in `.vale.ini` uses custom styles from `/vale` directory. Onl
 ### Documentation Changes
 
 1. Edit markdown files in `/docs/`
-2. Add images to `/static/img/` if needed
-3. Follow existing markdown format
-4. Run build to check for broken links: `npm run build`
-5. Test locally: `npm start` or `npm run serve`
+1. Add images to `/static/img/` if needed
+1. Follow existing markdown format
+1. Run build to check for broken links: `npm run build`
+1. Test locally: `npm start` or `npm run serve`
 
 **Docusaurus will throw build errors if:**
 
@@ -190,10 +197,10 @@ Rare. Only needed for structural website changes. Most work is in `/docs/`.
 ### Common Pitfalls
 
 1. **Never run `npm install` without `--legacy-peer-deps`** - it will fail
-2. **Don't add Table of Contents manually** - Docusaurus generates them automatically
-3. **Don't commit `node_modules/`, `build/`, or `.docusaurus/`** - they're in .gitignore
-4. **Always test build after markdown changes** - broken links fail the build
-5. **Pre-commit mdformat may fail** - this is known, not blocking
+1. **Don't add Table of Contents manually** - Docusaurus generates them automatically
+1. **Don't commit `node_modules/`, `build/`, or `.docusaurus/`** - they're in .gitignore
+1. **Always test build after markdown changes** - broken links fail the build
+1. **Pre-commit mdformat may fail** - this is known, not blocking
 
 ### Typical Workflow
 
