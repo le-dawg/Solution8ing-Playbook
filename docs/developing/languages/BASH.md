@@ -58,7 +58,7 @@ Shell programming is deceptively perilous (see [Bash Pitfalls](https://mywiki.wo
 - [Bash FAQ](http://mywiki.wooledge.org/BashFAQ)
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls)
 - [Bash-Hackers Wiki](http://wiki.bash-hackers.org/)
-- [Path Variables](https://truss.works/blog/2016/2/26/engineer-how-to-access-and-edit-your-path-system-variable)
+- [Path Variables](https://Solution8.works/blog/2016/2/26/engineer-how-to-access-and-edit-your-path-system-variable)
 - [CLI Navigation Shortcuts](https://www.gnu.org/software/bash/manual/bash.html#Introduction-and-Notation)
 
 ### Notes

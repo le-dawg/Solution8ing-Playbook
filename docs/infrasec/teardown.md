@@ -7,82 +7,56 @@ guide is intended to provide a step-by-step procedure for tearing down
 infrastructure we've created for a project and highlight any potential
 sources of trouble.
 
-## Terraform and AWS
+## Terraform and Azure
 
-Your first task should be shutting down all the AWS infrastructure
+Your first task should be shutting down all the Azure infrastructure
 you've built for your project. When you do this, you'll need to proceed
 in basically the reverse order you created all the resources. Here are
-some guidelines when tearing down Terraform namespaces:
+some guidelines when tearing down Terraform workspaces:
 
-- Tear down accounts that don't hold resources for organization-wide
-  purposes first -- leave your infra, id, and org-root accounts for last.
+- Tear down resource groups that don't hold resources for organization-wide
+  purposes first -- leave your platform, identity, and management group resources for last.
 
-- If you were using Atlantis to maintain a namespace, and you have this
+- If you were using a CI/CD pipeline to maintain a workspace, and you have this
   component in your `terraform.tf` `backend` configuration:
 
-  ```text
-  role_arn       = "arn:aws:iam::123456789000:role/atlantis"
+  ```hcl
+  backend "azurerm" {
+    ...
+  }
   ```
 
-  Then before you begin tearing down that namespace, you need to remove
+  Then before you begin tearing down that workspace, you need to remove
   this line, run a `terraform apply`, and then do your `terraform destroy`.
   If you do not do this, then your `destroy` will fail and the state will
-  become corrupted because you will destroy the role Terraform is using
+  become corrupted because you will destroy the storage account Terraform is using
   to perform the destroy. Doing the `terraform apply` allows Terraform to
   cleanly change the backend configuration first.
 
-- Similarly, when tearing down the `admin-global` namespace, you should
-  change your `.aws/config` profile for the account you're destroying to
-  use the `OrganizationAccountAccessRole` with the `org-root` account as
-  the `source_profile`. This prevents you from having the same problem
-  when your `admin` role is destroyed.
-
-- Do not destroy resources in the `admin-global` namespace until all
-  other namespaces for the account except the `bootstrap` namespace have
-  been torn down. Don't destroy `bootstrap` until `admin-global` has been
-  torn down.
-
-- When you are ready to tear down the `org-root` account, create an IAM
-  user *without* Terraform, give it credentials and attach an MFA, and
-  change your `org-root` profile to use those credentials. This will allow
-  you to cleanly tear down the entire `org-root` account safely, otherwise
-  you will delete the IAM user you are using to tear down the account in
-  the middle of the `destroy` and corrupt the state.
-
-- It's easiest to wait until all resources in all your accounts are
-  destroyed to begin closing accounts; this will remove all the
-  organization SCPs and let you remove accounts from the organization
+- It's easiest to wait until all resources in all your resource groups are
+  destroyed to begin deleting resource groups; this will remove all the
+  resource locks and let you remove resource groups from the subscription
   as you go.
 
-- If your organization has an SCP applied to OUs which restricts editing billing data (which is a common practice for Truss), you will need to remove that SCP from accounts you're attempting to close first. You can do this either by removing the SCP from the affected OU or moving the account out of the affected OU.
-
-- In order to completely close an account (aside from the `org-root`
-  account), you'll need to go through the password recovery procedure for
-  the root user account (ie, you need to try to log in with the email
-  address for the account and click the "Forgot Password" link), then
-  set up billing information for the account. Once you have done that,
-  you can safely remove the account from the AWS Organization (either
-  from the console or using the CLI) and then close it from the My
-  Account panel.
+- In order to completely close a subscription, you'll need to cancel it in the Azure portal.
 
 ## SSL certificates
 
-For most projects, we'll hopefully be able to use AWS ACM certificates,
+For most projects, we'll hopefully be able to use Azure Key Vault certificates,
 and those will get torn down with our Terraform teardown above. However,
 if we've bought additional SSL certificates through another vendor, such
 as SSLMate, we should revoke those certificates and close that account
 as well.
 
-## CircleCI
+## CI/CD
 
-Assuming you've used CircleCI for your CI/CD pipeline on the project,
-you should be able to just terminate your CircleCI support plan as soon
-as you don't need to do anymore deploys or validate code. You can do this
-from the "Project Settings" page on the CircleCI dashboard.
+Assuming you've used a CI/CD pipeline on the project,
+you should be able to just terminate your support plan as soon
+as you don't need to do anymore deploys or validate code.
 
 ## GitHub
 
-Once you've torn down your AWS infrastructure and CircleCI, you can
+Once you've torn down your Azure infrastructure and CI/CD, you can
 shutdown your GitHub organization for the project. Here are the
 guidelines for taking down your GitHub organization:
 

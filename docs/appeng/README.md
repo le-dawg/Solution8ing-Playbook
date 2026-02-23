@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # AppEng Practice
 
-Application Engineering (AppEng) is the practice area at Truss
+Application Engineering (AppEng) is the practice area at Solution8
 focused on building software applications--
 including and mostly dealing with web development.
 

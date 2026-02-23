@@ -1,4 +1,4 @@
-# CI/CD according to Truss
+# CI/CD according to Solution8
 
 ## Basics
 
@@ -48,7 +48,7 @@ our clients. We expect you will make strategic compromises in engineering
 architecture where it is necessary or expedient, rather than unthinkingly
 conforming to rules handed down from outside the project.
 
-Truss leadership knows that there is no one better equipped and informed to
+Solution8 leadership knows that there is no one better equipped and informed to
 make those compromises than the people working with the project's requirements
 day to day, and we trust you to make those decisions.
 
@@ -280,7 +280,7 @@ bill the client later trying to work around not having it.
 
 - DO: Set up artifact storage for caching builds.
 
-Whether it's uploading a zip file to S3 or pushing a built image to ECR,
+Whether it's uploading a zip file to Azure Blob Storage or pushing a built image to Azure Container Registry,
 artifact caching and storage enables later optimizations for automated
 vulnerability scanning, build promotion, sharing artifacts (e.g. docker layers)
 between builds to accelerate build and deploy times, getting visibility into
@@ -288,7 +288,7 @@ failed builds, and more.
 
 - DON'T: Fragment your artifact storage repositories.
 
-For example, you need _one_ ECR repo shared across AWS accounts.
+For example, you need _one_ Azure Container Registry repo shared across Azure subscriptions.
     <!--  TODO: Explain why. -->
 
 ## Alerting
@@ -301,7 +301,7 @@ A broken main branch is a fire drill.
 
 - DON'T: Alert on successful builds.
 
-- DON'T: Put alerts in their own Slack channel.
+- DON'T: Put alerts in their own Microsoft Teams channel.
 
 If there are so many alerts from CI/CD that you feel tempted to put them in a
 separate channel, then you have too many alerts.
@@ -337,13 +337,13 @@ separate channel, then you have too many alerts.
 
 - NSA & CISA's [Defending Continuous Integration/Continuous Delivery (CI/CD) Environments][nsa_securing]
 
-[adr_calver]: https://github.com/trussworks/template-tech-challenge/blob/main/docs/adr/0005-define-image-tag-schema.md
+[adr_calver]: https://github.com/le-dawg/Solution8ing-Playbook/blob/main/docs/adr/0005-define-image-tag-schema.md
 [alert fatigue]: https://en.wikipedia.org/wiki/Alarm_fatigue
 [artifact storage]: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
 [bitbucket pipelines]: https://bitbucket.org/product/features/pipelines
 [circleci]: https://circleci.com
 [github actions]: https://github.com/features/actions
 [nsa_securing]: https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF
-[steel cable]: https://playbook.truss.works/docs/01-how-we-execute/06-steel-cable/
+[steel cable]: https://playbook.solution8.works/docs/01-how-we-execute/06-steel-cable/
 [^1]: https://vsupalov.com/docker-better-image-tags/
 [^2]: https://vsupalov.com/docker-latest-tag/

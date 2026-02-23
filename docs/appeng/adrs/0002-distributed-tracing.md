@@ -4,7 +4,7 @@
 
 **Date Accepted:** 12/8/2021
 
-**Reviewers:** @ahobson @felipe-lee @gidjin @jim @macrael @mikena-truss @reggieriser @rogeruiz
+**Reviewers:** @ahobson @felipe-lee @gidjin @jim @macrael @mikena-solution8 @reggieriser @rogeruiz
 
 ## Context
 
@@ -75,20 +75,20 @@ help answer:
     OpenTelemetry, the vendors automatically become available to support that
     given language.
 - OpenTelemetry is vendor agnostic
-  - tracing information can be sent to hosted services (e.g. Honeycomb.io, AWS
-    X-Ray, etc) or self-hosted Open Source implementations (e.g. Zipkin, Jaeger,
+  - tracing information can be sent to hosted services (e.g. Honeycomb.io, Azure
+    Application Insights, etc) or self-hosted Open Source implementations (e.g. Zipkin, Jaeger,
     etc)
   - if left unconfigured, OpenTelemetry instrumentation calls default to
     lightweight/noop executions
 - OpenTelemetry has well-maintained libraries for the languages used in the
-  layers of most Truss projects
+  layers of most Solution8 projects
   - i.e. Go (back-end); JavaScript (front-end); Python (load testing); etc
 - Easily swappable back-ends
   - e.g. could choose a local Docker version of OpenZipkin for an all-local
     development environment
   - e.g. can use Honeycomb.io in the experimental commercial-cloud hosted
     environment
-  - e.g. can swap in AWS X-Ray for use in GovCloud hosted environments
+  - e.g. can swap in Azure Application Insights for use in Azure Government hosted environments
 - Cons
   - as an abstraction layer, OpenTelemetry may prohibit usage of vendor-specific
     capabilities
@@ -133,17 +133,14 @@ Don't use OpenTelemetry if:
 - `-` Vendor lock-in in code
   - lock-in may be somewhat mitigated by translation layers available within
     the OpenTelemetry ecosystem, at the expense of increased configuration burden
-  - example - choosing AWS X-Ray would work well in the deployed GovCloud
+  - example - choosing Azure Application Insights would work well in the deployed Azure Government
     environments, but it does not scale down to exclusively local development
-    environments, i.e. X-Ray does not provide a UI for browsing distributed
-    traces with their local X-Ray daemon
+    environments
   - example - choosing Honeycomb.io's instrumentation libraries adds a lot of
-    nice auto-instrumentation capabilities over OpenTelemetry, but since
-    Honeycomb does not have FedRAMP (nor do most of their peers), the distributed
-    tracing could not be enabled in the GovCloud deployed environments
+    nice auto-instrumentation capabilities over OpenTelemetry
   - example - using an open source tool (e.g. OpenZipkin) can scale down to
     local development, but would require more infrastructure support to self-host
-    the data storage and UI tools in the GovCloud environments
+    the data storage and UI tools
 
 ### Do not instrument
 

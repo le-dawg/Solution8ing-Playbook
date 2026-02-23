@@ -43,11 +43,11 @@ Your local environment variables should be updated now. Any time the `.envrc` fi
 
 ### Usage example: Changing the git committer email
 
-Some Trussels develop on projects where they must use a client email address. `direnv` can automate the process of changing the email address displayed in your git commits appropriately. For example, consider the following directory structure:
+Some Solution8els develop on projects where they must use a client email address. `direnv` can automate the process of changing the email address displayed in your git commits appropriately. For example, consider the following directory structure:
 
 ```console
 $ pwd
-/User/trussel/src/
+/User/Solution8el/src/
 $ tree -n -L 2
 .
 ├── me
@@ -55,7 +55,7 @@ $ tree -n -L 2
 │   └── personal_toy_project_2
 ├── client
 │   └── client_project
-└── truss
+└── Solution8
     └── Engineering-Playbook
 $ cat me/.envrc
 export GIT_AUTHOR_EMAIL="ryan.delaney@gmail.com"
@@ -63,9 +63,9 @@ export GIT_COMITTER_EMAIL="ryan.delaney@gmail.com"
 $ cat client/.envrc
 export GIT_AUTHOR_EMAIL="ryan.delaney@clientdomain.com"
 export GIT_COMITTER_EMAIL="ryan.delaney@clientdomain.com"
-$ cat truss/.envrc
-export GIT_AUTHOR_EMAIL="ryan@truss.works"
-export GIT_COMITTER_EMAIL="ryan@truss.works"
+$ cat Solution8/.envrc
+export GIT_AUTHOR_EMAIL="ryan@Solution8.works"
+export GIT_COMITTER_EMAIL="ryan@Solution8.works"
 $
 ```
 
@@ -149,4 +149,4 @@ Commands in `.envrc.local` will be loaded by direnv, but ignored by git.
 
 ### Other examples
 
-Trussels have thoroughly exploited `direnv` on the [TransCom/mymove](https://github.com/transcom/mymove/blob/master/.envrc) GitHub repository.
+Solution8els have thoroughly exploited `direnv` on the [TransCom/mymove](https://github.com/transcom/mymove/blob/master/.envrc) GitHub repository.

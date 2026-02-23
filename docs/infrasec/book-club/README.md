@@ -7,16 +7,16 @@ We watch talks, read articles, or read books on topics that relate to the InfraS
 
 Discussion sections are scheduled every other week on Thursday afternoons.
 We record the Zoom discussion sections so that folks don't have to take notes.
-The event is on the Truss Events calendar and are open to all Trussels.
+The event is on the Solution8 Events calendar and are open to all Solution8ers.
 
-If you have any questions, please ask in the #infrasec Slack channel.
+If you have any questions, please ask in the #infrasec channel.
 
 ## Planned "reading" for 2021
 
 For 2021 we will be reading [The DevOps Handbook](https://www.amazon.com/DevOps-Handbook-World-Class-Reliability-Organizations/dp/1942788002/ref=sr_1_1?crid=1ONCS7O6HFMTZ&dchild=1&keywords=devops+handbook&qid=1609356569&sprefix=devops+han%2Caps%2C223&sr=8-1) by Gene Kim, Patrick Debois, John Willis, Jez Humble.
 
 A TL;DR will be posted here before we discuss every other Thursday.
-Events are on the Truss calendar and are open to all Trussels.
+Events are on the Solution8 calendar and are open to all Solution8ers.
 
 ## Talks we have discussed in 2020
 
@@ -40,7 +40,7 @@ Please mark that you added it so if we have questions we know who to ask.
 - [“Why Are Distributed Systems So Hard?”](https://www.youtube.com/watch?v=bG9AQ9ce5Zo), Denise Yu
   This is a great talk on some of the fundamental questions about the difficulties in distributed systems in general (with some amazing hand-drawn art by the speaker). (Chas)
 - [“Linux Systems Performance”](https://www.youtube.com/watch?v=fhBHvsi0Ql0), Brendan Gregg
-  Brendan is probably the foremost expert on Linux performance tuning, and this is the latest iteration on his talk about what tools to use to find performance bottlenecks. This is much lower level than most of the work we do at Truss, but it’s a great talk for learning about how the OS is working under the hood. (Chas)
+  Brendan is probably the foremost expert on Linux performance tuning, and this is the latest iteration on his talk about what tools to use to find performance bottlenecks. This is much lower level than most of the work we do at Solution8, but it’s a great talk for learning about how the OS is working under the hood. (Chas)
 - [“Engineering Resilience Into Modern IT Operations”](https://www.youtube.com/watch?v=DZBvANyq9PQ), J Paul Reed
   (Ignore the fact that the title for this video is something else, the reason will become clear when you watch) This is a great talk about how systems and people behave in ways to create resilience, and how simply engineering redundancies and adding automation is insufficient. (Chas)
 - [“A Young Lady’s Illustrated Primer to Technical Decision Making”](https://www.youtube.com/watch?v=PSIPhVjWBO0), Charity Majors

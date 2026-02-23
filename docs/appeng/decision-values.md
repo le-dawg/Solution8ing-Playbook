@@ -5,7 +5,7 @@ engineers navigate making an AppEng decision.
 It is focused on the "why" of decisions
 and meant to help align them
 with the core values of the AppEng practice
-and Truss organization
+and Solution8 organization
 
 ## Intended Audience
 

@@ -87,7 +87,7 @@ repos:
     hooks:
       - id: markdownlint
 
-  - repo: https://github.com/trussworks/pre-commit-hooks
+  - repo: https://github.com/Solution8works/pre-commit-hooks
     rev: v1.1.1
     hooks:
       - id: goreleaser-check
@@ -132,13 +132,13 @@ You'll need to be sure to enable automation to push into whatever you use.
 
 ### Create a Docker Hub repo
 
-We don't use the trussworks Docker Hub org very much so you'll need to reach out to the #infrasec Slack channel to find someone to help you.
+We don't use the Solution8works Docker Hub org very much so you'll need to reach out to the #infrasec Microsoft Teams channel to find someone to help you.
 
 Log into [Docker Hub](https://hub.docker.com/) with your personal account. If you don't have an account then make one
-and then have someone on InfraSec add you to the Trussworks organization.
+and then have someone on InfraSec add you to the Solution8works organization.
 
 [Create a new Docker Hub repo](https://hub.docker.com/repository/create) following the same naming convention of the
-repo like `trussworks/NEWREPO`. You should be able to select `trussworks` from a drop down on the form. Then set
+repo like `Solution8works/NEWREPO`. You should be able to select `Solution8works` from a drop down on the form. Then set
 the name to the same name as your tool or github repository name. The repository should be `Public` and not `Private`
 if it is an open-source tool.
 
@@ -147,10 +147,10 @@ access to that repo.
 
 ### Get an API key for pushing the docker image
 
-Use the `trussworksbot` user credentials in 1Password to log into [Docker Hub](https://hub.docker.com/) (you may have
+Use the `Solution8worksbot` user credentials in 1Password to log into [Docker Hub](https://hub.docker.com/) (you may have
 to log out of your personal user session). In the [Security Settings](https://hub.docker.com/settings/security)
-for `trussworksbot` create a "New Access Token" named for the repository you just created. Save this access key to
-the `trussworksbot` 1Password as you will need it later for configuring GitHub Actions.
+for `Solution8worksbot` create a "New Access Token" named for the repository you just created. Save this access key to
+the `Solution8worksbot` 1Password as you will need it later for configuring GitHub Actions.
 
 ## Create goreleaser configuration
 
@@ -184,12 +184,12 @@ builds:
 brews:
   - description: "USE THE DESCRIPTION FROM THE GITHUB REPO"
     github:
-      owner: trussworks
+      owner: Solution8works
       name: homebrew-tap
-    homepage: "https://github.com/trussworks/NEWREPO"
+    homepage: "https://github.com/Solution8works/NEWREPO"
     commit_author:
-      name: trussworks-infra
-      email: infra+github@truss.works
+      name: Solution8works-infra
+      email: infra+github@Solution8.works
 dockers:
   - binaries:
       - <BINARYNAME>
@@ -248,11 +248,11 @@ The next step is to write a GitHub Actions config file and commit it to your rep
 Configure the `GITHUB_TOKEN`, `DOCKER_USER`, and `DOCKER_PASS` environment variables.
 
 `GITHUB_TOKEN` is used by goreleaser to update release notes and push binaries to the release on GitHub. It is also
-used to update the [trussworks/homebrew-tap](https://github.com/trussworks/homebrew-tap) with the new artifact
-locations and checksums. In the `infra+github@truss.works` 1Password you will find an API Key named
+used to update the [Solution8works/homebrew-tap](https://github.com/Solution8works/homebrew-tap) with the new artifact
+locations and checksums. In the `infra+github@Solution8.works` 1Password you will find an API Key named
 `gorelreaser-homebrew-tap-token` which can be used for this value.
 
-`DOCKER_USER` and `DOCKER_PASS` are configured from the `trussworksbot` in 1Password. Use the API Key you configured
+`DOCKER_USER` and `DOCKER_PASS` are configured from the `Solution8worksbot` in 1Password. Use the API Key you configured
 in an earlier step to fill out these values. This is how CI will push to Docker Hub.
 
 ### Run a release from GitHub
@@ -267,7 +267,7 @@ git push --tags
 This will create a tag and CI will automatically run the `release` workflow. This will work even on
 a branch, meaning you can test the release process before merging this code into the mainline branch.
 
-You can also cut a release from the `https://github.com/trussworks/$REPO/releases` view.
+You can also cut a release from the `https://github.com/Solution8works/$REPO/releases` view.
 
 And if CLI is more your thing, you can cut a release with `gh release create v0.0.0 --title "My First Release" --notes "Notes go here"`.
 
@@ -275,13 +275,13 @@ And if CLI is more your thing, you can cut a release with `gh release create v0.
 
 ### Verify you can install from your configured Homebrew Tap
 
-First see if your tool appears in the [trussworks/homebrew-tap](https://github.com/trussworks/homebrew-tap) repo.
+First see if your tool appears in the [Solution8works/homebrew-tap](https://github.com/Solution8works/homebrew-tap) repo.
 There should be a Ruby file with your tool's name. If it is there then proceed to install it.
 
-Install the Trussworks tap to homebrew and then install the tool you built.
+Install the Solution8works tap to homebrew and then install the tool you built.
 
 ```sh
-brew tap trussworks/tap
+brew tap Solution8works/tap
 brew install tool-name
 ```
 
@@ -302,9 +302,9 @@ You will want to verify that your docker image was pushed to Docker Hub. Try pul
 the container:
 
 ```sh
-docker pull trussworks/tool-name:v0.0.0
-docker run -it trussworks/tool-name:v0.0.0 --help
-docker run -it trussworks/tool-name:v0.0.0 version
+docker pull Solution8works/tool-name:v0.0.0
+docker run -it Solution8works/tool-name:v0.0.0 --help
+docker run -it Solution8works/tool-name:v0.0.0 version
 ```
 
 ## Broadcast this to others
@@ -312,5 +312,5 @@ docker run -it trussworks/tool-name:v0.0.0 version
 Be sure you let other folks know you broke this out for them to use and contribute to! Consider doing one of these to help get more eyes on your new tool repo:
 
 - Add the people you worked with on this tool to your PRs on this repo.
-- Add some documentation to your repo and send the repo to Trussels in Slack!
+- Add some documentation to your repo and send the repo to Solution8els in Microsoft Teams!
 - Do a demo for your team or other teams or as an OTT.

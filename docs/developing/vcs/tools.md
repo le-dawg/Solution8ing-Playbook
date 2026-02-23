@@ -5,7 +5,7 @@ sidebar_position: 1
 # Tools
 
 This page provides a summary of tools we commonly use for source control
-at Truss.
+at Solution8.
 
 ## Git
 
@@ -17,8 +17,8 @@ Use your work email when making commits to our repositories.
 The simplest path to correctness is setting global config:
 
 ```bash
-git config --global user.email "trussel@truss.works"
-git config --global user.name "Trusty Trussel"
+git config --global user.email "Solution8el@Solution8.works"
+git config --global user.name "Trusty Solution8el"
 ```
 
 If you drop the `--global` flag,
@@ -41,10 +41,10 @@ and use that as your password.
 
 ## pre-commit
 
-We use [pre-commit](https://pre-commit.com/) at Truss to easily add git
+We use [pre-commit](https://pre-commit.com/) at Solution8 to easily add git
 hooks to our Git repos. This allows us to automate things like checking
 for merge conflicts or mistakenly adding secret keys in our code. See
-[this example](https://github.com/trussworks/circleci-docker-primary/blob/master/.pre-commit-config.yaml)
+[this example](https://github.com/Solution8works/circleci-docker-primary/blob/master/.pre-commit-config.yaml)
 pre-commit config file from one of our projects.
 
 Since git does not distribute hooks when a repository is cloned, you will
@@ -62,7 +62,7 @@ installed automatically.
 
 ## pre-reqs
 
-We use [pre-reqs](https://github.com/trussworks/prereqs) to bootstrap
+We use [pre-reqs](https://github.com/Solution8works/prereqs) to bootstrap
 system pre-requisites that are required to run the code we push to Github.
 
 [feature]: https://pre-commit.com/#pre-commit-init-templatedir

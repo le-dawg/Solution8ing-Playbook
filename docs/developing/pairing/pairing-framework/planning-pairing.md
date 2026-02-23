@@ -46,7 +46,7 @@ ______________________________________________________________________
 
 ### Resources used
 
-(Include links to any documentation, slack messages, etc. you use while working. This can be filled in at the end of the session. Don’t close your tabs!)
+(Include links to any documentation, microsoft teams messages, etc. you use while working. This can be filled in at the end of the session. Don’t close your tabs!)
 
 ______________________________________________________________________
 

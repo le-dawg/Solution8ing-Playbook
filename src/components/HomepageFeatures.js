@@ -7,13 +7,13 @@ const FeatureList = [
     title: 'Uses Markdown for documentation',
     description: (
       <>
-        The Truss Engineering Playbook uses Markdown for documentation which is
+        The Solution8 Engineering Playbook uses Markdown for documentation which is
         already widely used for other kinds of project documentation.
       </>
     ),
     callout: (
       <>
-        <a href="https://github.com/trussworks/Engineering-Playbook/blob/main/CONTRIBUTING.md">
+        <a href="https://github.com/le-dawg/Solution8ing-Playbook/blob/main/CONTRIBUTING.md">
             Read about how to contribute to this documentation.
         </a>
       </>
@@ -23,7 +23,7 @@ const FeatureList = [
     title: 'Focused on developer experience',
     description: (
       <>
-        The Truss Engineering Playbook lets contributors focus on documentation.
+        The Solution8 Engineering Playbook lets contributors focus on documentation.
         Docusaurus builds and manages the documentation while giving readers
         the ability to search and integrate other data sources besides
         Markdown.

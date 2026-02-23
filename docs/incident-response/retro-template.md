@@ -45,7 +45,7 @@ Date(s) of Incident: YYYY-MM-DD date or date range of incident
 
 > This should be a minute-by-minute account highlighting critical events
 > over the course of the incident; as much as possible, these should be
-> linked to a primary record of some type, such as a Slack message, system
+> linked to a primary record of some type, such as a Microsoft Teams message, system
 > log, or PagerDuty alert. If that is not possible, snipping out a log
 > line or providing some other message for context is important.
 >

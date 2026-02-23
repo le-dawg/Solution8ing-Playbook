@@ -1,6 +1,6 @@
 # Recommended Feature and QA testing framework
 
-Truss utilizes [Cypress IO](http://cypress.io) as our qa/feature testing framework of choice.
+Solution8 utilizes [Cypress IO](http://cypress.io) as our qa/feature testing framework of choice.
 
 ## Why we selected cypress
 
@@ -30,7 +30,7 @@ Test isolation is a key recommendation from the cypress team. In the [best pract
 
 ### Currently only supports chrome and headless browsers
 
-IE is in the works as is Firefox and mobile safari but no estimated date of release. This can be a hold up depending on the nature of the project. If IE support is critical, there are a couple of different workarounds that Truss has implemented on various projects.
+IE is in the works as is Firefox and mobile safari but no estimated date of release. This can be a hold up depending on the nature of the project. If IE support is critical, there are a couple of different workarounds that Solution8 has implemented on various projects.
 
 - Manually testing PRs against IE before merging
 - Executing tests via SauceLabs or similar service

@@ -6,21 +6,21 @@ const AdrsPages = require('./utils/redirect-adrs');
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Truss Engineering Playbook',
-  tagline: 'Repository of documentation on how we do Software Engineering at TrussWorks.',
-  url: 'https://playbook.truss.dev',
-  baseUrl: '/',
-  organizationName: 'trussworks',
+  title: 'Solution8 Engineering Playbook',
+  tagline: 'Repository of documentation on how we do Software Engineering at Solution8.',
+  url: 'https://le-dawg.github.io',
+  baseUrl: '/Solution8ing-Playbook/',
+  organizationName: 'le-dawg',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
-  projectName: 'Engineering-Playbook',
+  projectName: 'Solution8ing-Playbook',
   themeConfig: {
     navbar: {
       title: 'Engineering Playbook',
       logo: {
-        alt: 'Truss Logo',
+        alt: 'Solution8 Logo',
         src: 'img/truss-icon-light.png',
       },
       items: [
@@ -43,7 +43,7 @@ module.exports = {
           label: 'Incident Response',
         },
         {
-          href: 'https://github.com/trussworks/Engineering-Playbook',
+          href: 'https://github.com/le-dawg/Solution8ing-Playbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -62,7 +62,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright ${new Date().getFullYear()} TrussWorks, Inc. Built with Docusaurus.`
+      copyright: `Copyright ${new Date().getFullYear()} Solution8, Inc. Built with Docusaurus.`
     },
     prism: {
       theme: lightCodeTheme,
@@ -75,7 +75,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/trussworks/Engineering-Playbook/edit/main/',
+          editUrl: 'https://github.com/le-dawg/Solution8ing-Playbook/edit/main/',
           remarkPlugins: [require('mdx-mermaid')],
         },
         theme: {

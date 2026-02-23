@@ -1,13 +1,13 @@
 # SSL Certificates
 
 SSL Certificates are most commonly used to verify a server's identity and
-encrypt HTTP traffic. Usually, we try to use offerings like Amazon's
-[AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) to
+encrypt HTTP traffic. Usually, we try to use offerings like Azure's
+[Azure Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/certificates/certificate-overview) to
 eliminate the toil of obtaining certificates and keeping them up to date.
 
 However, this isn't always feasible. Sometimes we can use self-signed
 certificates if it will not be exposed to users (for instance, to encrypt
-the connection between containers and their ALB), but in many cases we'll
+the connection between containers and their load balancer), but in many cases we'll
 need to get a real certificate.
 
 Note: TLS ([Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security))
@@ -28,7 +28,7 @@ bare containers.
 
 ### SSLMate
 
-If you need to get a certificate and cannot use a service like ACM or
+If you need to get a certificate and cannot use a service like Azure Key Vault or
 Let's Encrypt, you can get one via [SSLMate](https://sslmate.com/); they
 offer a command line client that makes it relatively easy to get new
 certificates or update old ones, autorenewal, and a reasonable price for
@@ -65,17 +65,17 @@ one-off certificates. Their documentation is
   need the first two; everything but the key can be later retrieved from
   SSLMate if you need to. *The key only exists where you generated the
   key* (so, your laptop) -- make sure you put this somewhere safe (like
-  the AWS Parameter Store); if you lose it you will need to regenerate
+  Azure Key Vault); if you lose it you will need to regenerate
   the key and the certs.
 
 - The easiest way to pass these certificates to your application is
-  likely via the AWS Parameter Store using `chamber`, but it may vary for
-  your project. To add it to the Parameter Store with `chamber`, you can
+  likely via Azure Key Vault using the Azure CLI or Terraform, but it may vary for
+  your project. To add it to Key Vault with the Azure CLI, you can
   use a command similar to this one:
 
   ```console
-  $ aws-vault exec my-aws-profile -- chamber write "app-myapp-myenv" server-cert - < example.com.crt
-  $ aws-vault exec my-aws-profile -- chamber write "app-myapp-myenv" server-key - < example.com.key
+  az keyvault certificate import --vault-name "my-key-vault" --name "server-cert" --file example.com.crt
+  az keyvault secret set --vault-name "my-key-vault" --name "server-key" --file example.com.key
   ```
 
 ## External resources

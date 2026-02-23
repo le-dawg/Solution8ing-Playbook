@@ -6,7 +6,7 @@
 
 A few items need to be setup before modifying the repo.
 
-1. CircleCI needs to have the following environment variables configured: `BUILDEVENT_APIKEY` and `BUILDEVENT_CIRCLE_API_TOKEN`. These have been populated for the Trussworks CircleCi Organization using the `org-global` context.
+1. CircleCI needs to have the following environment variables configured: `BUILDEVENT_APIKEY` and `BUILDEVENT_CIRCLE_API_TOKEN`. These have been populated for the le-dawg CircleCi Organization using the `org-global` context.
 1. CircleCI also needs a per project environment variable `BUILDEVENT_DATASET` to separate the Honeycomb datasets.
 
 More information on the environment variables used by the Honeycomb integration can be found [here](https://github.com/honeycombio/buildevents#environment-variables).
@@ -91,8 +91,8 @@ For more advanced tracing the [Orb](https://circleci.com/developer/orbs/orb/hone
 
 When working properly the CircleCI workflow should look like below.
 
-![honeycomb-circleci-workflow](./images/honeycomb-circleci-workflow.png)
+![honeycomb-circleci-workflow](./images/placeholder.png)
 
 In Honeycomb there is a trace id for each build that matches the build id in CircleCi. Viewing the trace for a particular build should display a trace as below.
 
-![Honeycomb Trace](images/honeycomb-circleci-trace.png)
+![Honeycomb Trace](images/placeholder.png)

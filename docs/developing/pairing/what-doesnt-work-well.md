@@ -18,7 +18,7 @@ sidebar_position: 3
   - Okay, theoretically we say pairing is more important than a deadline, but
     it’s unclear whether that’s something we can support when the pressure’s on.
 
-- Wandering attention, checking Slack or your phone, generally drifting off.
+- Wandering attention, checking Microsoft Teams or your phone, generally drifting off.
 
   - All of these signal to the person that you are pairing with that you don’t
     think the work is worth your attention. It can be particularly easy to fall

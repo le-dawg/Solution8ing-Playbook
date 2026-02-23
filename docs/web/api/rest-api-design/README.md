@@ -32,7 +32,7 @@ We will first be focusing on the **Building REST APIs** section. And will decide
 
 ## Building REST APIs
 
-This guide is **not meant to be comprehensive**. Rather it outlines what we have already learned in projects here at Truss. Please do contribute more sections if you have tackled some of these and have more or different insight to offer.
+This guide is **not meant to be comprehensive**. Rather it outlines what we have already learned in projects here at Solution8. Please do contribute more sections if you have tackled some of these and have more or different insight to offer.
 
 - [HTTP Methods](HTTP-Methods.md) - Use HTTP methods and status codes correctly
 

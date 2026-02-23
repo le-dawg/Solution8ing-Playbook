@@ -21,8 +21,8 @@ worse than no information. If we change our opinions or processes, we should
 strive to update the playbook shortly thereafter.
 
 If you feel important content is missing, please submit a PR if you have the
-time. If the work needs to be discussed, please reach out in the [#reserve
-channel 🔒 in Truss Slack][slack-reserve] to plan and prioritize the work.
+time. If the work needs to be discussed, please reach out in the appropriate
+channel to plan and prioritize the work.
 
 ## How
 
@@ -30,7 +30,5 @@ If you are adding new content, please follow our
 [templates](./docs/templates/README.md). If you are updating existing content, and
 you notice that it does not adhere to our templates format, please update the
 format in a separate PR if you have time. If the work needs to be discussed,
-please reach out in the [#reserve channel 🔒 in Truss Slack][slack-reserve] to
-plan and prioritize the work.
+please reach out in the appropriate channel to plan and prioritize the work.
 
-[slack-reserve]: https://trussworks.slack.com/archives/C7KMHDJKW

@@ -2,7 +2,7 @@
 
 ## Overview
 
-These are our recommendations and best practices for front end development at Truss.
+These are our recommendations and best practices for front end development at Solution8.
 
 ## Contents
 
@@ -28,7 +28,7 @@ It is also important to keep in mind, especially as the ecosystem of front end d
 
 ## ReactUSWDS
 
-[ReactUSWDS](https://github.com/trussworks/react-uswds) is an internal Truss project aiming to create React implementations of USWDS 2.0 UI components. If you are building a new UI component that is based on a USWDS design, and might be useful to abstract so it can be shared by other projects, you may want to consider building it in ReactUSWDS instead. You can find more information about [contributing to and using ReactUSWDS here](https://github.com/trussworks/react-uswds).
+[ReactUSWDS](https://github.com/Solution8works/react-uswds) is an internal Solution8 project aiming to create React implementations of USWDS 2.0 UI components. If you are building a new UI component that is based on a USWDS design, and might be useful to abstract so it can be shared by other projects, you may want to consider building it in ReactUSWDS instead. You can find more information about [contributing to and using ReactUSWDS here](https://github.com/Solution8works/react-uswds).
 
 ## Additional Resources
 
@@ -39,7 +39,7 @@ It is also important to keep in mind, especially as the ecosystem of front end d
   - Note: [MomentJS](https://momentjs.com/) has been deprecated, **do not use on new projects**
 - \[ \] [validateJS](https://validatejs.org/), [yup](https://github.com/jquense/yup) (validating form object models)
 - \[ \] [React-hook-form](https://react-hook-form.com/) (building forms in React)
-  - We used to recommend [Formik](https://formik.org/) while it was maintained. We now recommend migrating to React Hook Form if you're already using Formik. Check out our [migration guide](https://github.com/trussworks/formik-to-react-hook-form-migration-guide) for more information.
+  - We used to recommend [Formik](https://formik.org/) while it was maintained. We now recommend migrating to React Hook Form if you're already using Formik. Check out our [migration guide](https://github.com/Solution8works/formik-to-react-hook-form-migration-guide) for more information.
 - \[ \] [numeral.js](http://numeraljs.com/), [big.js](https://mikemcl.github.io/big.js/) (working with numbers and decimals)
 
 ### Learning

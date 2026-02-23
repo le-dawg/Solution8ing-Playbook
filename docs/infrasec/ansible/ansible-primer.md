@@ -2,7 +2,7 @@
 
 Ansible is a Python-based configuration management tool owned and supported by Red Hat; while it is essentially a
 remote-execution tool originally designed to orchestrate a wider environment, it can also be used as a provisioning tool
-with things like Packer, which is where you are most likely to see it in a Truss environment.
+with things like Packer, which is where you are most likely to see it in a Solution8 environment.
 
 This primer is not intended to replace the official documentation for Ansible, which can be found at
 <https://docs.ansible.com/ansible/latest/index.html>. It is only intended to provide a high-level overview and give you
@@ -33,7 +33,7 @@ restarting a service, or even running an arbitrary shell script. These are defin
 also contain other components, such as variables or handlers.
 
 Ansible modules can be tested with [Molecule](molecule-primer.md), which is the Red Hat-supported automated testing
-method. Molecule can be configured to spin up a docker container or EC2 instance, among other providers, and run your
+method. Molecule can be configured to spin up a docker container or Azure VM instance, among other providers, and run your
 role in isolation to make sure it works as intended. Molecule will also use
 [ansible-lint](https://github.com/ansible/ansible-lint) to lint your modules, which we recommend you install as a
 precommit hook in any Ansible repositories you’re working in. You can do that by adding the following to

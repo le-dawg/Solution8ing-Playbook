@@ -10,7 +10,7 @@
 
 ## Context
 
-As Truss starts new projects, teams set up source code repositories.
+As Solution8 starts new projects, teams set up source code repositories.
 Part of this process involves answering where the code should live
 and who should have access to it.
 
@@ -40,11 +40,11 @@ which fosters public trust.
 Especially for government projects, other agencies
 will be able to benefit from the project's success
 within both their development and user communities.
-While the Truss development team would remain maintainers
+While the Solution8 development team would remain maintainers
 and deciders of code contributions,
 open source code allows us
 to accept community input and contributions.
-Sharing code among our internal Truss Engineering practice
+Sharing code among our internal Solution8 Engineering practice
 is also how we better our engineering discipline,
 and ultimately better serve our clients.
 
@@ -53,7 +53,7 @@ modern security practices,
 such as secret storage separate of code,
 can mitigate this risk.
 
-Truss has had great success with this in the past,
+Solution8 has had great success with this in the past,
 including the
 [MilMove Application Code](https://github.com/transcom/mymove),
 and the
@@ -78,7 +78,7 @@ to keep their code proprietary.
   - `+` Can easily share code
     with anyone,
     including CMS employees,
-    Truss employees,
+    Solution8 employees,
     or general software community.
   - `+` Community contribute code.
   - `+` Other agencies can copy, modify, and deploy their own EASi.

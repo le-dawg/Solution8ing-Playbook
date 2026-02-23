@@ -82,7 +82,7 @@ you are expected to fulfill.
 
 - Prior to going on-call, you should make sure that you have access to
   any resources necessary to diagnose and correct issues -- this means
-  AWS or GitHub, documentation, or any other tools. Your project should
+  Azure or GitHub, documentation, or any other tools. Your project should
   have an on-call checklist to make it easy for you to be confident you
   have this covered.
 - If you know you will be away for an extended period during an on-call
@@ -118,7 +118,7 @@ you are expected to fulfill.
   If you are still stuck (or you *were* the secondary), you should feel
   free to call upon the tertiary or a known subject matter expert (SME).
 - If you are *not* on-call, you should refrain from responding to alerts
-  even if you see them in Slack or elsewhere. By doing so, you can reduce
+  even if you see them in Microsoft Teams or elsewhere. By doing so, you can reduce
   your own interrupts. However, if you believe you might be responsible,
   or know the on-call person is dealing with another higher-priority issue
   and want to assist, *let the on-call engineer know* and then make sure
@@ -143,9 +143,9 @@ which is set for each engineer individually that determines how they will
 be notified if they receive an alert.
 
 - PagerDuty and similar products can be set up to send notifications to
-  Slack for each alert; we recommend doing so. Using the [PagerDuty
-  integration](https://www.pagerduty.com/docs/guides/slack-integration-guide/)
-  will also allow engineers to acknowledge or resolve alerts from Slack
+  Microsoft Teams for each alert; we recommend doing so. Using the [PagerDuty
+  integration](https://www.pagerduty.com/docs/guides/microsoft teams-integration-guide/)
+  will also allow engineers to acknowledge or resolve alerts from Microsoft Teams
   if they so choose.
 - Engineers should have notification policies set to ensure that they
   will be notified within the expected five minute response window. This

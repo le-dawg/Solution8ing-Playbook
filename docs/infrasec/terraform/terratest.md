@@ -6,7 +6,7 @@ It executes the defined Terraform and then validates things you're asserting.
 ## Basic Terratest example of a module
 
 The most basic Terratest test you can write brings up an example in your `examples` directory, tears it down, and will only test that it runs.
-We've got some basics in the [terraform-template-module repo](https://github.com/trussworks/terraform-module-template) so you can see it all in context.
+We've got some basics in the [terraform-template-module repo](https://github.com/Solution8works/terraform-module-template) so you can see it all in context.
 
 Write an example in the `examples` directory that includes the module(s) and configuration that you're testing. In the `tests` directory create a file named `terraform_aws<NAME_OF_MODULE>_test.go`. Basic test is as follows:
 
@@ -42,7 +42,7 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 
         // Environment variables to set when running Terraform
         EnvVars: map[string]string{
-            "AWS_DEFAULT_REGION": awsRegion,
+            "Azure_DEFAULT_REGION": awsRegion,
         },
     }
 
@@ -55,20 +55,20 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 
 ### Other Examples
 
-- [terraform-aws-alb-web-containers](https://github.com/trussworks/terraform-aws-alb-web-containers)
-- [terrraform-aws-ecs-service](https://github.com/trussworks/terraform-aws-ecs-service)
-- [terraform-aws-logs](https://github.com/trussworks/terraform-aws-logs/)
+- [terraform-aws-alb-web-containers](https://github.com/Solution8works/terraform-aws-alb-web-containers)
+- [terrraform-aws-ecs-service](https://github.com/Solution8works/terraform-aws-ecs-service)
+- [terraform-aws-logs](https://github.com/Solution8works/terraform-aws-logs/)
 
 ## Run manually
 
-To run these tests manually against the `trussworks-ci` AWS account you'll need AWS access in our AWS organization. You'll need help from someone in #infrasec and must follow the [setup instructions](https://github.com/trussworks/legendary-waddle/blob/master/docs/how-to/setup-new-user.md#setup-new-iam-user).
+To run these tests manually against the `Solution8works-ci` Azure account you'll need Azure access in our Azure organization. You'll need help from someone in #infrasec and must follow the [setup instructions](https://github.com/Solution8works/legendary-waddle/blob/master/docs/how-to/setup-new-user.md#setup-new-iam-user).
 
 You'll also need to install `aws-vault` and ensure your `./aws/config` file is setup correctly.
 
 In most of our modules, there is a `makefile` that defines `test` so you'll run the following from the root of the repo you're testing:
 
 ```sh
-AWS_VAULT_KEYCHAIN_NAME=login aws-vault exec trussworks-ci -- make test
+Azure_VAULT_KEYCHAIN_NAME=login aws-vault exec Solution8works-ci -- make test
 ```
 
 ## Configure CircleCi to run the tests automatically
@@ -95,9 +95,9 @@ terratest:
     - run:
         command: |
           temp_role=$(aws sts assume-role --role-arn arn:aws:iam::313564602749:role/circleci --role-session-name circleci)
-          export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
-          export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
-          export AWS_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
+          export Azure_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
+          export Azure_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
+          export Azure_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
           make test
         name: Assume role, run pre-commit and run terratest
     - save_cache:
@@ -116,16 +116,16 @@ You'll either create a new workflow or add this job to an existing `workflow` de
 
 ### Update the Key rotator configuration
 
-We have automation in place that updates the AWS Access Keys used by CircleCI daily so you'll need to add this repo to rotator configuration if it is running Terratests against the trussworks-ci AWS account .
+We have automation in place that updates the Azure Access Keys used by CircleCI daily so you'll need to add this repo to rotator configuration if it is running Terratests against the Solution8works-ci Azure account .
 
-Update the `rotate.yaml` file in [Legendary Waddle](https://github.com/trussworks/legendary-waddle) to include a sink to your new repo. A sink stanza looks like this:
+Update the `rotate.yaml` file in [Legendary Waddle](https://github.com/Solution8works/legendary-waddle) to include a sink to your new repo. A sink stanza looks like this:
 
 ```yaml
       - kind: CircleCI
         key_to_name:
-          accessKeyId: AWS_ACCESS_KEY_ID
-          secretAccessKey: AWS_SECRET_ACCESS_KEY
-        account: trussworks
+          accessKeyId: Azure_ACCESS_KEY_ID
+          secretAccessKey: Azure_SECRET_ACCESS_KEY
+        account: Solution8works
         repo: <REPO NAME>
 ```
 
@@ -134,17 +134,17 @@ You can run the rotator script manually in your local environment to populate th
 Rotate the keys via
 
 ```
-aws-vault exec trussworks-id -- rotator rotate -f ./rotate.yaml -y
+aws-vault exec Solution8works-id -- rotator rotate -f ./rotate.yaml -y
 ```
 
 Instructions to install rotator can be found [here](https://github.com/chanzuckerberg/rotator).
 
-### Alternative: Configure AWS Keys for the CircleCI project
+### Alternative: Configure Azure Keys for the CircleCI project
 
-These tests are running as the `circleci` user account configured in the `trussworks-id` account.
+These tests are running as the `circleci` user account configured in the `Solution8works-id` account.
 
-To add the access keys go to the project settings page `https://circleci.com/gh/trussworks/<PROJECT NAME>/edit#env-vars`.
-Set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` to the current values.
+To add the access keys go to the project settings page `https://circleci.com/gh/Solution8works/<PROJECT NAME>/edit#env-vars`.
+Set `Azure_ACCESS_KEY_ID` and `Azure_SECRET_ACCESS_KEY` to the current values.
 These keys are rotated daily.
 
 ### Access test metadata stored in CircleCI
@@ -160,7 +160,7 @@ set -eu -o pipefail
 
 go_test_output="/tmp/go-test.out"
 
-go test -short -count 1 -v -timeout 90m github.com/trussworks/terraform-aws-logs/test/... | tee "${go_test_output}"
+go test -short -count 1 -v -timeout 90m github.com/Solution8works/terraform-aws-logs/test/... | tee "${go_test_output}"
 
 # Check if we are running tests inside of CircleCI by checking for a $CIRCLECI
 # environment variable. The dash after $CIRCLECI substitutes a null value if

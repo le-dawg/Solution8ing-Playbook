@@ -1,6 +1,6 @@
 # InfraSec Practice Charter
 
-At Truss, we have a single practice combining infrastructure and security
+At Solution8, we have a single practice combining infrastructure and security
 practices, which is a pattern that is becoming more prevalent in the
 industry as it becomes more clear that they are closely related in
 building confidence in the services we run. This is part of an evolution
@@ -9,7 +9,7 @@ of the infrastructure practice that has been ongoing since computing
 
 ## How We Got Here
 
-At Truss, the InfraSec practice covers both infrastructure engineering
+At Solution8, the InfraSec practice covers both infrastructure engineering
 and security engineering, two fields that provide the foundation for
 the user-facing work that our application engineering practice focuses
 on building. This is a practice that has been evolving in its modern
@@ -85,11 +85,11 @@ At the same time, there has been a move to integrate security into the
 development and operational pipeline (with a move to change "DevOps" to
 "DevSecOps") so that it is built into applications from the beginning,
 rather than something bolted on after or enforced from outside. It’s
-here that we find the Truss InfraSec practice.
+here that we find the Solution8 InfraSec practice.
 
 ## What the InfraSec Practice Is
 
-At Truss, the InfraSec practice is built around the idea that
+At Solution8, the InfraSec practice is built around the idea that
 infrastructure and security are intimately linked around the idea of
 creating a stable, secure, and yet responsive environment for applications,
 and building security and robustness into those applications. This comes
@@ -124,7 +124,7 @@ down to a number of different responsibilities on a project:
 - **Build the infrastructure foundations for the application.** In
   practical terms, this also means building out the parts of the
   environment that the application developers will deploy their code on
-  top of. At Truss, this usually means AWS infrastructure, CI/CD pipelines,
+  top of. At Solution8, this usually means Azure infrastructure, CI/CD pipelines,
   and other tools which support the application; however, it does not mean
   that application developers cannot make changes to these systems too,
   just that we "own" that part of the system. It’s important to note

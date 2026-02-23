@@ -4,13 +4,13 @@ One-Time Passwords (aka OTPs or TOPTs) are exactly what they sound like. They ar
 
 ## Storing one-time passwords in 1Password
 
-You can store one-time passwords in a number of ways: Authy, Google Authenticator, 1Password, etc. This tutorial will focus on 1Password since this is where Truss stores passwords in the first place.
+You can store one-time passwords in a number of ways: Authy, Microsoft Authenticator, 1Password, etc. This tutorial will focus on 1Password since this is where Solution8 stores passwords in the first place.
 
 As I learn best with examples, let's pretend we're setting up 2FA on GitHub. If you want a more general tutorial, follow this [link](https://support.1password.com/one-time-passwords/).
 
 On your GitHub Account, click Settings > Security. You will see a couple of methods for 2FA. In our case, we're interested in setting up 2FA with an authenticator app.
 
-![GitHub Security 2FA Settings](images/github-2fa.png "GitHub Security 2FA")
+![GitHub Security 2FA Settings](images/placeholder.png "GitHub Security 2FA")
 
 You should be redirected to an intro screen. Click the green button `Set up using an app`.
 
@@ -26,21 +26,21 @@ If you don't, quickly generate a new password and edit it.
 
 Scroll down until you see two fields called `label` and `new field`.
 
-![1Password Empty Field](images/1password-empty-field.png "1Password Empty Field")
+![1Password Empty Field](images/placeholder.png "1Password Empty Field")
 
 Click the drop-down next to the field and select `One-Time Password`.
 
-![1Password Field Dropdown](images/1password-field-dropdown.png "1Password Field Dropdown")
+![1Password Field Dropdown](images/placeholder.png "1Password Field Dropdown")
 
 The field will then transform.
 
-![1Password Transformed Field](images/1password-transformed-field.png "1Password Transformed Field")
+![1Password Transformed Field](images/placeholder.png "1Password Transformed Field")
 
 You see that QR code icon? Click it. This will open a scanner window.
 
 _Note_: This part can be finicky. You might have to save the password and edit again for the scanner window to pop up.)
 
-![1Password Scanner Window](images/1password-scanner-window.png "1Password Scanner Window")
+![1Password Scanner Window](images/placeholder.png "1Password Scanner Window")
 
 Your goal is to now to drag the scanner window over the GitHub QR code to scan it.
 
@@ -52,7 +52,7 @@ You will now see that there is a six-digit code under your new label. It will ha
 
 _Note_: These tokens are time-based. Once the timer runs out, the code has expired and a new one will generate.
 
-![1Password One True Pairing](images/1password-otp.png "1Password OTP")
+![1Password One True Pairing](images/placeholder.png "1Password OTP")
 
 Type in the code as requested in GitHub.
 

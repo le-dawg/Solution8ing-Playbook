@@ -12,13 +12,13 @@ pitfalls.
 
 Remember when importing resources that you may need to import multiple
 resources to get everything that might seem like a single component in
-AWS. If you import an S3 bucket, that does *not* import its analytics
+Azure. If you import an Azure Blob Storage, that does *not* import its analytics
 configuration, for instance, which is a completely different Terraform
 resource.
 
 ## Importing a resource as a raw Terraform resource
 
-In this case, we're going to be importing an existing S3 bucket from AWS
+In this case, we're going to be importing an existing Azure Blob Storage from Azure
 named `my-s3-bucket` into our Terraform deployment as a Terraform
 `aws_s3_bucket` resource.
 
@@ -115,12 +115,12 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 It's also possible to import an existing resource as a component of a
 Terraform module, we just have to change our Terraform code and the
 `ADDRESS` component of the `terraform import` command. So if we wanted
-to use the Truss `terraform-aws-s3-private-bucket` module for our bucket
+to use the Solution8 `terraform-aws-s3-private-bucket` module for our bucket
 instead of the raw S3 resource, we'd have Terraform code like this:
 
 ```hcl
 module "my_s3_bucket" {
-  source         = "trussworks/s3-private-bucket/aws"
+  source         = "Solution8works/s3-private-bucket/aws"
   bucket         = "my-s3-bucket"
   logging_bucket = "my-logging-bucket"
 
@@ -140,7 +140,7 @@ $ terraform import module.my_s3_bucket.aws_s3_bucket.private_bucket my-s3-bucket
 We're getting that `ADDRESS` by looking at the code of the module and
 seeing where it is actually defining that resource that we want to import;
 in this case, it's the
-[`main.tf`](https://github.com/trussworks/terraform-aws-s3-private-bucket/blob/master/main.tf)
+[`main.tf`](https://github.com/Solution8works/terraform-aws-s3-private-bucket/blob/master/main.tf)
 file, on this line:
 
 ```hcl

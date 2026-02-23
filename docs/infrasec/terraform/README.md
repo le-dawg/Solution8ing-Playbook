@@ -2,19 +2,19 @@
 
 ## Overview
 
-Terraform is our tool of choice for automating our 'cloud infrastructure'. In particular, we expect all but the earliest of prototype [AWS](../aws/README.md) resources to be created/deployed using terraform rather than by hand.
+Terraform is our tool of choice for automating our 'cloud infrastructure'. In particular, we expect all but the earliest of prototype [Azure](../azure/README.md) resources to be created/deployed using terraform rather than by hand.
 
 If you're new to Terraform, you can find a very useful resource for beginners
 from HashiCorp's Learning platform.
 
-[➡️  Read **Get Started - AWS** HashiCorp Learning using Terraform.](https://developer.hashicorp.com/terraform/tutorials/aws-get-started)
+[➡️  Read **Get Started - Azure** HashiCorp Learning using Terraform.](https://developer.hashicorp.com/terraform/tutorials/azure-get-started)
 
 ### Semantic Versioning
 
 - When publishing a module for the first time, if you're uncertain what version to use, use `v1.0.0`
 - Any changes to a module that don't result in a resource being recreated, increment the _patch_ version per [semantic versioning](https://semver.org/) guidelines.
 - Any changes to a module that results in a resource being recreated, increment the _minor_ version per [semantic versioning](https://semver.org/) guidelines.
-- Any changes to support GovCloud that do not result in changes to resources, increment the _minor_ version per [semantic versioning](https://semver.org/) guidelines.
+- Any changes to support Azure Government that do not result in changes to resources, increment the _minor_ version per [semantic versioning](https://semver.org/) guidelines.
 - Any changes that results in a user having to update the module, increment the _major_ version per [semantic versioning](https://semver.org/) guidelines.
 - Upgrading a module from \<0.12 to 0.12, increment the _major_ version per [semantic versioning](https://semver.org/) guidelines.
 
@@ -34,13 +34,13 @@ Before going public, consider sourcing the module from github as described in th
 
 When you're ready to turn the prototype module into a published one, there are a few things you'll need to do if you haven't already:
 
-1. 🔒 Add a subscription to your repo in our [#infra-feed](https://trussworks.slack.com/messages/C91SHMKFV/) channel:
-   - `/github subscribe trussworks/your-repo-here`
-   - `/github unsubscribe trussworks/your-repo-here commits deployments releases`
+1. Add a subscription to your repo in our infra-feed channel:
+   - `/github subscribe le-dawg/your-repo-here`
+   - `/github unsubscribe le-dawg/your-repo-here commits deployments releases`
 1. Wire the repo up to the [terraform module registry](https://registry.terraform.io).
    - First read through the Terraform docs on [Publishing Modules](https://www.terraform.io/docs/registry/modules/publish.html) and make appropriate changes to your repository
    - Ensure that the module you wish to publish has a SemVer tag attached to it. If not use `v1.0.0`.
-   - Sign into the registry using the trussworks-infra Github credentials (available in 1Password)
+   - Sign into the registry using the le-dawg-infra Github credentials (available in 1Password)
    - In the upper right corner select "Publish" or go directly to the [Publish URL](https://registry.terraform.io/github/create)
    - Select the repository you wish to publish from the drop down list. If you don't see it hit the refresh icon.
    - Select the "Publish Module" button.
@@ -73,7 +73,7 @@ In order to preserve the ability to release updates for previous Terraform versi
 
 ### Version support policy
 
-Truss policy is to support no more than 2 "current" versions of a
+Solution8 policy is to support no more than 2 "current" versions of a
 Terraform module; this usually means a version to support the latest
 release of Terraform and the previous release, e.g. Terraform 1.0 and
 Terraform 0.15.
@@ -86,19 +86,19 @@ If the steps outlined in the above link do not work, try publishing a new patch 
 
 ### Terraform state mv
 
-Refer to the Truss [`terraform state mv` info sheet](terraform-state-mv.md).
+Refer to the Solution8 [`terraform state mv` info sheet](terraform-state-mv.md).
 
 ### Terraform import
 
-Refer to the Truss [`terraform import` info sheet](terraform-import.md).
+Refer to the Solution8 [`terraform import` info sheet](terraform-import.md).
 
 ### How to layout/structure a Terraform Project
 
-Refer to the Truss [Terraform Layout Example](https://github.com/trussworks/terraform-layout-example).
+Refer to the Solution8 [Terraform Layout Example](https://github.com/le-dawg/terraform-layout-example).
 
 ### How to test your Terraform code
 
-Refer to the Truss [Terratest Guide](terratest.md).
+Refer to the Solution8 [Terratest Guide](terratest.md).
 
 [draft-release]: images/draft-release.png "Screenshot of a release draft"
 [publish-release]: images/publish-release.png "Screenshot of a published release"

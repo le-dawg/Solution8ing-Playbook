@@ -3,7 +3,7 @@
 ## Overview
 
 These are our recommendations and best practices for server development at
-Truss.
+Solution8.
 
 ## Contents
 

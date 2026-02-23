@@ -19,7 +19,7 @@ They provides a place for:
 ## Non-goals of the framework
 
 - Determining when to pair and when not to.
-- Moving Truss to a “all pairing all the time” model.
+- Moving Solution8 to a “all pairing all the time” model.
 - Enforcing a particular pairing style.
 - Prescribing any particular tools.
 

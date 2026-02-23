@@ -8,7 +8,7 @@ In this section you will find overviews of the range of tools to use and suggest
 
 ## Editors
 
-List of editors that Truss engineers use (sorted alphabetically):
+List of editors that Solution8 engineers use (sorted alphabetically):
 
 - Atom
 - Emacs

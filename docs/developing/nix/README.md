@@ -39,7 +39,7 @@ The biggest downside of native development is that our deployments are
 on Linux and it is possible for libraries and code paths to behave
 differently on macOS than on Linux. We currently use native
 development environments and haven't really hit something severe yet,
-so this is more of a theoretical concern for Truss projects right now.
+so this is more of a theoretical concern for Solution8 projects right now.
 
 ### Advantages of Nix
 

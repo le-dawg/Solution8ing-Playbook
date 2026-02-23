@@ -23,7 +23,7 @@ What solution did you decide on?
 ## Why is this Applicable to the Practice as a Whole
 
 What makes this decision generally applicable
-to Truss projects?
+to Solution8 projects?
 
 ## When to Not Implement This Decision
 

@@ -8,7 +8,7 @@ title: Template topic
 
 ## Context
 
-Provide a Paragraph here which gives some context for why Trussels should care about the topic, how it occurs in client engagements and any relevant background
+Provide a Paragraph here which gives some context for why Solution8ers should care about the topic, how it occurs in client engagements and any relevant background
 
 ## Approaches
 
@@ -26,6 +26,6 @@ In the RoR world [Devise](https://github.com/plataformatec/devise) is a standard
 
 This is the place to point out any common gotchas, e.g. confusing authentication and authorization, or confusing the authentication entities (oAuth token etc) with the Users they apply to.
 
-## The Trussel Way
+## The Solutioneer Way
 
-Often we have to work within the constraints of the Client's existing frameworks and choices. In those cases the [Approaches](#approaches) and [Pitfalls](#pitfalls) sections should hopefully contain the information a Trussel needs to think critically about the choices and alternatives. On those occasions where we have a blank slate or are being asked for recommendations, this section should give a sound default choice to pick an answer and move forward.
+Often we have to work within the constraints of the Client's existing frameworks and choices. In those cases the [Approaches](#approaches) and [Pitfalls](#pitfalls) sections should hopefully contain the information a Solutioneer needs to think critically about the choices and alternatives. On those occasions where we have a blank slate or are being asked for recommendations, this section should give a sound default choice to pick an answer and move forward.

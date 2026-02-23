@@ -1,6 +1,6 @@
 # AppEng Decision Process
 
-Application Engineers are staffed sparsely across projects at Truss.
+Application Engineers are staffed sparsely across projects at Solution8.
 This means engineers are often working on unrelated
 products, code bases and technologies.
 Because of this,
@@ -21,7 +21,7 @@ At it's core decision making process is as follows:
 1. Write an Architectural Decision Record (ADR) justifying it.
 1. Workshop the ADR with a [Domain Group](#domain-groups)
    and create a final draft.
-1. Propose it in Slack for all of AppEng for review.
+1. Propose it in Microsoft Teams for all of AppEng for review.
 1. (Optional) Hold a [meeting](#review-meeting) for review.
 1. Commit the [ADR](./adrs) and create [implementation documentation](#output).
 
@@ -87,7 +87,7 @@ Practice leadership will call for nominees from the practice
 and pick leaders in between those terms.
 Group leaders should be at a minimum level 3
 and have established specialization within their group's domain.
-They should also have a year experience at Truss.
+They should also have a year experience at Solution8.
 
 Group leaders are also responsible for connecting practice members
 with domain experts that can help them craft decisions best
@@ -138,11 +138,11 @@ to ensure documentation has been written to reflect the decision.
 
 ## Project Implementation
 
-We recognize that projects vary at Truss,
+We recognize that projects vary at Solution8,
 and it would be impossible to verbatim follow these decisions.
 Some projects will use tools based on client needs,
 or some may work in completely different domains.
-When Truss is responsible for the technology decisions
+When Solution8 is responsible for the technology decisions
 and applications are similar to a past pattern,
 projects should seek to utilize known resources first.
 Practice ADR repositories should be consulted

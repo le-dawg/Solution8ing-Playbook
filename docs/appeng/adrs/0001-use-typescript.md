@@ -4,7 +4,7 @@
 
 **Date Accepted:** 12/1/2021
 
-**Reviewers:** @suzubara @jim @rswerve @macrael @gidjin @jenniferlynparsons @kylehilltruss
+**Reviewers:** @suzubara @jim @rswerve @macrael @gidjin @jenniferlynparsons @kylehillSolution8
 
 ## Context
 
@@ -28,14 +28,14 @@ To clarify, this is _not_ a decision to use TypeScript whenever possible, includ
 
 ## Why is this applicable to the practice as a whole
 
-As stated above, many of the projects Truss works on use JavaScript to some extent. This decision is applicable to any such project, with the intention of encouraging high code quality and consistent tooling across engineering practices.
+As stated above, many of the projects Solution8 works on use JavaScript to some extent. This decision is applicable to any such project, with the intention of encouraging high code quality and consistent tooling across engineering practices.
 
 ## When to not implement this decision
 
 - If the project has no reason to use JavaScript, there may be no reason to use TypeScript. However, this decision does not preclude the option to use TypeScript as a server language if otherwise appropriate.
 - It can be very challenging and time consuming to introduce TypeScript to an existing JavaScript code base, especially if there are many dependencies and/or integrations that may or may not have TypeScript support. In this case it might not be feasible to spend time configuring TypeScript, although the option of introducing TypeScript incrementally (such as only to new code, or by using [JSDoc](https://www.typescriptlang.org/play#example/jsdoc-support)) should also be considered.
 - TypeScript can have a notoriously high learning curve, and may be too costly to adopt by certain projects with tight timing and/or staffing circumstances. However, that overhead in this situation should still be weighed carefully against the payoff of using TypeScript to prevent errors and reduce the need for writing certain kinds of tests later on.
-- For the same reason, the handoff cost may be too high for a client to maintain continuity of the project, if the incoming engineering team is not experienced with TypeScript. As consultants, Truss should be well-positioned to recommend TypeScript as a best practice, but there may be scenarios where this recommendation is not acted upon.
+- For the same reason, the handoff cost may be too high for a client to maintain continuity of the project, if the incoming engineering team is not experienced with TypeScript. As consultants, Solution8 should be well-positioned to recommend TypeScript as a best practice, but there may be scenarios where this recommendation is not acted upon.
 
 ## Why TypeScript?
 
@@ -89,7 +89,7 @@ It is also worth noting the potential pitfalls and impacts of the decision to us
 - `-` Less IDE integration & debugging support than TypeScript
 - `-` Some have had negative experiences with unclear error messages and limited support
 - `-` Reported issues of sluggish activity across IDE, background process hogging bandwidth on machines
-- `-` Fewer engineers at Truss are experienced with Flow
+- `-` Fewer engineers at Solution8 are experienced with Flow
 
 ### Don’t use type checking
 

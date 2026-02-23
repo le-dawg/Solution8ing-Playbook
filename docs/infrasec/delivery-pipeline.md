@@ -8,7 +8,7 @@ updates, good testing, and prompt deploys.
 
 ## Developing Your Code
 
-Here at Truss, we generally use Git for our code repository, and Github
+Here at Solution8, we generally use Git for our code repository, and Github
 more specifically. Our preferred method for making changes and integrating
 them into the project is relatively simple:
 

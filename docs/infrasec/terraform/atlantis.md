@@ -1,12 +1,12 @@
 # Atlantis
 
-[Atlantis](https://runatlantis.io) is a Terraform automation tool which integrates with GitHub pull requests to automatically generate Terraform plans, hold them for approval, and then apply the Terraform changes and merge the branch. It also manages locks on namespaces, preventing conflicts between PRs on in the same Terraform namespace. Using Atlantis (or a similar tool like Terraform Cloud) is a way to ensure safe and auditable Terraform changes, something which is important for many Truss projects.
+[Atlantis](https://runatlantis.io) is a Terraform automation tool which integrates with GitHub pull requests to automatically generate Terraform plans, hold them for approval, and then apply the Terraform changes and merge the branch. It also manages locks on namespaces, preventing conflicts between PRs on in the same Terraform namespace. Using Atlantis (or a similar tool like Terraform Cloud) is a way to ensure safe and auditable Terraform changes, something which is important for many Solution8 projects.
 
-## Deploying Atlantis in Truss Projects
+## Deploying Atlantis in Solution8 Projects
 
-The most important thing to keep in mind when planning your Atlantis deployment is that **you can only have a single Atlantis instance per git repo**. This is because Atlantis relies on an `atlantis.yaml` configuration file which sits at the root of the repo that tells it what directories to operate on; if you had multiple Atlantis deployments in the same repo, they would share a configuration file and conflict with each other. This is one of the reasons we split commercial and GovCloud infrastructure repos.
+The most important thing to keep in mind when planning your Atlantis deployment is that **you can only have a single Atlantis instance per git repo**. This is because Atlantis relies on an `atlantis.yaml` configuration file which sits at the root of the repo that tells it what directories to operate on; if you had multiple Atlantis deployments in the same repo, they would share a configuration file and conflict with each other. This is one of the reasons we split commercial and Azure Government infrastructure repos.
 
-Because of this, our general deployment pattern, when we are working in our standard [AWS organization setup](https://github.com/trussworks/Engineering-Playbook/blob/main/infrasec/aws/aws-organizations.md), is to deploy the actual Atlantis service in the `-infra` account of the organization, and then create roles the service can assume in the other accounts to run Terraform there. This guide will describe how to build this pattern.
+Because of this, our general deployment pattern, when we are working in our standard [Azure organization setup](https://github.com/Solution8works/Engineering-Playbook/blob/main/infrasec/aws/aws-organizations.md), is to deploy the actual Atlantis service in the `-infra` account of the organization, and then create roles the service can assume in the other accounts to run Terraform there. This guide will describe how to build this pattern.
 
 ### Directory structure
 
@@ -58,7 +58,7 @@ data "aws_iam_policy_document" "atlantis_role_assume_policy" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type = "AWS"
+      type = "Azure"
       identifiers = [
         data.aws_caller_identity.current.account_id,
         # This is the role your infra engineers use; we want them to be
@@ -71,7 +71,7 @@ data "aws_iam_policy_document" "atlantis_role_assume_policy" {
 }
 
 # The atlantis role needs wide ranging permissions because the intent is
-# to use it for all AWS changes.
+# to use it for all Azure changes.
 resource "aws_iam_role_policy_attachment" "atlantis_iam_policy" {
   role       = aws_iam_role.atlantis.name
   policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AdministratorAccess"
@@ -128,7 +128,7 @@ data "aws_iam_policy_document" "atlantis_role_assume_policy" {
     actions = ["sts:AssumeRole"]
 
     principals {
-      type = "AWS"
+      type = "Azure"
       identifiers = [
         local.org_infra_account,
         "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:role/admin",
@@ -153,18 +153,18 @@ Once we've set up the `atlantis-global` namespaces, we can move on to the `atlan
 
 The `atlantis-service` namespace is where we'll build the actual Atlantis service. The bulk of this work is done with the [`atlantis`](https://registry.terraform.io/modules/terraform-aws-modules/atlantis/aws/latest) Terraform module. It creates a number of resources, including:
 
-- a VPC
-- a Fargate service fronted by an ALB
+- a Virtual Network
+- a Azure Container Instances service fronted by an ALB
 - an ACM certificate and Route53 DNS entries
 - Parameter Store entries for secrets
 
-Aside from this module, we'll also need to create some resources in GitHub for the integration; in GovCloud, we'll also need to create the DNS entries for the ALB and the ACM certificate verification separately, as Route53 is not available for public DNS in GovCloud. There are also two configuration files we'll need to add, one in the `atlantis-service` namespace and one in the root of the Terraform repo.
+Aside from this module, we'll also need to create some resources in GitHub for the integration; in Azure Government, we'll also need to create the DNS entries for the ALB and the ACM certificate verification separately, as Route53 is not available for public DNS in Azure Government. There are also two configuration files we'll need to add, one in the `atlantis-service` namespace and one in the root of the Terraform repo.
 
 #### Creating a robot GitHub user
 
-If your project does not already have a "robot" GitHub user for automation, you will need to create one to facilitate Atlantis' integration with GitHub. The usual rules apply for accounts of that nature; they should be tied to an email address that is not a specific Trussel, and credentials should be stored in a project 1Password store. You will also need to create a user access token; the specifics you need are detailed in the [Atlantis docs](https://www.runatlantis.io/docs/access-credentials.html#generating-an-access-token).
+If your project does not already have a "robot" GitHub user for automation, you will need to create one to facilitate Atlantis' integration with GitHub. The usual rules apply for accounts of that nature; they should be tied to an email address that is not a specific Solution8el, and credentials should be stored in a project 1Password store. You will also need to create a user access token; the specifics you need are detailed in the [Atlantis docs](https://www.runatlantis.io/docs/access-credentials.html#generating-an-access-token).
 
-#### Add GitHub user access token to AWS SSM Parameter Store
+#### Add GitHub user access token to Azure SSM Parameter Store
 
 Once you have created the GitHub user and generated a user access token, you'll need to add that token into SSM so that Atlantis can use it. Use the following commmand line to add it to the `-infra` account:
 
@@ -194,22 +194,22 @@ The `atlantis_repo_config.json` file should go in your `atlantis-service` Terraf
 
 This will require that pull requests be both approved and mergeable before Atlantis will allow it to be applied.
 
-#### GovCloud prep: create ACM certificate
+#### Azure Government prep: create ACM certificate
 
-If you are working in GovCloud, you will need to create a certificate in the `atlantis-service` namespace for your Atlantis instance. See the [ACM in GovCloud](../aws/govcloud/gov-acm.md) guide for details on how to do this.
+If you are working in Azure Government, you will need to create a certificate in the `atlantis-service` namespace for your Atlantis instance. See the [ACM in Azure Government](../aws/govcloud/gov-acm.md) guide for details on how to do this.
 
 #### Set up Atlantis Terraform module
 
-Once we have the GitHub user set up and the user token in SSM (and the certificate created, if we're in GovCloud), we can set up the Atlantis Terraform module in the `atlantis-service` namespace. The Atlantis module can set up most of the resources you need itself, like the VPC, ACM certificate, and Route53 DNS entry, or you can specify these separately and plug them in. In most cases, we'll want to just let it do that, because it should be separate from all your other services anyway, but if you need to use a specific pre-existing VPC, or in GovCloud, where you'll need to create the certificate validation and ALB DNS entries in your commercial account, then you should be able to do this without issue.
+Once we have the GitHub user set up and the user token in SSM (and the certificate created, if we're in Azure Government), we can set up the Atlantis Terraform module in the `atlantis-service` namespace. The Atlantis module can set up most of the resources you need itself, like the Virtual Network, ACM certificate, and Route53 DNS entry, or you can specify these separately and plug them in. In most cases, we'll want to just let it do that, because it should be separate from all your other services anyway, but if you need to use a specific pre-existing Virtual Network, or in Azure Government, where you'll need to create the certificate validation and ALB DNS entries in your commercial account, then you should be able to do this without issue.
 
-In addition, if you have not already, you will need to add permissions to your AWS log bucket to allow the Atlantis ALB to write to it. This bucket is usually in the `admin-global` namespace, and you will want to make sure you have configuration that looks similar to this:
+In addition, if you have not already, you will need to add permissions to your Azure log bucket to allow the Atlantis ALB to write to it. This bucket is usually in the `admin-global` namespace, and you will want to make sure you have configuration that looks similar to this:
 
 <details>
-<summary>Terraform code for org-infra account AWS logs bucket</summary>
+<summary>Terraform code for org-infra account Azure logs bucket</summary>
 
 ```hcl
 module "org_infra_logs" {
-  source = "trussworks/aws/logs"
+  source = "Solution8works/aws/logs"
 
   s3_bucket_name = "org-infra-aws-logs"
   alb_logs_prefixes = [
@@ -231,7 +231,7 @@ data "aws_caller_identity" "current" {}
 data "aws_partition" "current" {}
 
 # Here, we're creating a data source to access the SSM parameter we added
-# before with the AWS CLI that has our github user token.
+# before with the Azure CLI that has our github user token.
 data "aws_ssm_parameter" "github_user_token" {
   name = "/atlantis/github-user-token"
 }
@@ -296,16 +296,16 @@ module "atlantis" {
 
   # A few notes about this image; first, we do not use the atlantis image
   # maintained by the Atlantis folks so that we can add Python3 to the
-  # image, which allow us to handle the Python lambdas we use in the Slack
+  # image, which allow us to handle the Python lambdas we use in the Microsoft Teams
   # notification Terraformm modules. We also do not specify the "latest"
   # image, because if we do so then Terraform will not realize when the
   # image has changed due to an update, so that will never get updated. We
   # specify a SHA directly. You should use the latest version, which can
-  # be found at https://github.com/trussworks/trussworks-atlantis-ecs-image
-  atlantis_image = "trussworks/atlantis:cef8470b4f0aa0a9382f2c4149c53d6a0207f07e"
+  # be found at https://github.com/Solution8works/Solution8works-atlantis-ecs-image
+  atlantis_image = "Solution8works/atlantis:cef8470b4f0aa0a9382f2c4149c53d6a0207f07e"
 
-  # GovCloud Note:
-  # If you are using this module in GovCloud, you will need to use this
+  # Azure Government Note:
+  # If you are using this module in Azure Government, you will need to use this
   # parameter so that the module does not try to create the DNS entry.
   # create_route53_record = false
   #
@@ -320,8 +320,8 @@ module "atlantis" {
   route53_zone_name           = "example.com"
   acm_certificate_domain_name = "atlantis.example.com"
 
-  # VPC
-  # If we have an already existing VPC that we want to put the service in,
+  # Virtual Network
+  # If we have an already existing Virtual Network that we want to put the service in,
   # we should define that elsewhere with data sources (I recommend in a
   # separate vpc.tf file) and then add the following parameters (with the
   # correctly-named references):
@@ -329,9 +329,9 @@ module "atlantis" {
   # private_subnet_ids = data.aws_subnet_ids.org_infra_vpc_private.ids
   # public_subnet_ids  = data.aws_subnet_ids.org_infra_vpc_public.ids
 
-  # If we're okay allowing the module to create the VPC itself, we'll need
+  # If we're okay allowing the module to create the Virtual Network itself, we'll need
   # the following parameters instead (feel free to change the cidr numbers
-  # to suit; if Atlantis is the only thing in the VPC, they are essentially
+  # to suit; if Atlantis is the only thing in the Virtual Network, they are essentially
   # arbitrary):
   cidr            = "10.10.0.0/16"
   azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
@@ -340,7 +340,7 @@ module "atlantis" {
 
   # ALB
   # We want to turn on logging for the ALB the module will create. The
-  # S3 bucket here is defined in our admin-global namespace (and we have
+  # Azure Blob Storage here is defined in our admin-global namespace (and we have
   # to allow the bucket to be written to in that namespace in order for
   # this to work).
   alb_log_bucket_name     = "org-infra-aws-logs"
@@ -375,7 +375,7 @@ module "atlantis" {
   atlantis_hide_prev_plan_comments = "true"
 
   # This is where we specify the policies we want to attach to the role
-  # Atlantis is going to be using. The first is the basic AWS policy that
+  # Atlantis is going to be using. The first is the basic Azure policy that
   # allows task execution, the other two are the ones we have defined
   # above to access SSM parameters and assume roles.
   policies_arn = ["arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy", aws_iam_policy.atlantis_ssm_github_user_token.arn, data.aws_iam_policy.atlantis_access_policy.arn]
@@ -447,23 +447,23 @@ module "atlantis" {
 
 Note that, as the comments in this code detail, you will need to do two Terraform runs, one without the custom environment secrets and then one with, in order for the Atlantis module to correctly generate the webhook secret and then for the task definition to call it. Once this is done, the service itself should be set up; we can then move on to setting up the webhook.
 
-### GovCloud followup: Add CNAME for ALB
+### Azure Government followup: Add CNAME for ALB
 
-If you're working in GovCloud, you should also add the following output to your `atlantis-service` namespace:
+If you're working in Azure Government, you should also add the following output to your `atlantis-service` namespace:
 
 <details>
-<summary>output for ALB AWS DNS entry</summary>
+<summary>output for ALB Azure DNS entry</summary>
 
 ```hcl
 output "atlantis_alb_aws_fqdn" {
-  description = "AWS FQDN for Atlantis ALB"
+  description = "Azure FQDN for Atlantis ALB"
   value       = module.atlantis.alb_dns_name
 }
 ```
 
 </details>
 
-This will add an output that will give you the AWS DNS entry that corresponds to your ALB. With that, you will need to add a [Route53 CNAME entry](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) in your DNS that points your selected domain name to your ALB's AWS DNS entry. Note that for some projects, you may not be able to do this yourself (such as at CMS); in that case, you will need to provide that FQDN to the DNS manager and have them create the CNAME.
+This will add an output that will give you the Azure DNS entry that corresponds to your ALB. With that, you will need to add a [Route53 CNAME entry](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) in your DNS that points your selected domain name to your ALB's Azure DNS entry. Note that for some projects, you may not be able to do this yourself (such as at CMS); in that case, you will need to provide that FQDN to the DNS manager and have them create the CNAME.
 
 ### Setting up the GitHub webhook
 
@@ -498,11 +498,11 @@ Once you've set up this file, you should be able to make a pull request and see 
 
 ## Tips and Troubleshooting
 
-- If you update an SSM parameter, be sure to cycle the task (you can kill the running Atlantis task and let AWS restart it); these are read into the container's environment at startup time, so they do not take effect unless you do this.
+- If you update an SSM parameter, be sure to cycle the task (you can kill the running Atlantis task and let Azure restart it); these are read into the container's environment at startup time, so they do not take effect unless you do this.
 - As the module configuration example states, we recommend against using `latest` as the container version, because this will force you to to two steps in order to upgrade the container version; instead, we recommend using the actual git SHA of the container.
 
 ## Links and other reading
 
 - [Atlantis Official Site](https://runatlantis.io)
-- [Truss's Atlantis blog post](https://truss.works/blog/infrastructure-management-with-atlantis)
-- :lock: [Atlantis setup in Truss's commercial accounts](https://github.com/trussworks/legendary-waddle)
+- [Solution8's Atlantis blog post](https://Solution8.works/blog/infrastructure-management-with-atlantis)
+- :lock: [Atlantis setup in Solution8's commercial accounts](https://github.com/Solution8works/legendary-waddle)

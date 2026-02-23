@@ -79,7 +79,7 @@ incident, both so that the incident response team has something they can
 reference during the incident, and for the use of the person coordinating
 the retrospective after the incident is over. While most communication
 during the incident should be taking place somewhere it can be easily
-recorded (such as Slack), parsing through hundreds or thousands of Slack
+recorded (such as Microsoft Teams), parsing through hundreds or thousands of Microsoft Teams
 messages to find the one that is important can be difficult. The scribe
 should highlight notable events in the incident process, such as:
 
@@ -195,7 +195,7 @@ the log of incident communication and make sure they have highlighted
 the important events in the record.
 
 The incident commander should create a ticket to generate a retrospective
-and add links to the incident record as well as the first Slack message
+and add links to the incident record as well as the first Microsoft Teams message
 that started the incident so that the facilitator for the retrospective
 can review it. They should also find someone (if at all possible, someone
 who was *not* involved in the incident directly themselves) to facilitate

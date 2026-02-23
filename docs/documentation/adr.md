@@ -1,6 +1,6 @@
 # Architectural Decision Records
 
-Truss uses [architectural decision records](https://adr.github.io/) (ADRs) to
+Solution8 uses [architectural decision records](https://adr.github.io/) (ADRs) to
 document engineering decisions. These include choices about composition of the
 tech stack, using one module or library over others, infrastructure, features,
 etc. "Architectural" should be interpreted broadly: any decision that could

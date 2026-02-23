@@ -14,7 +14,7 @@ provides some specifics to web development.
 
 - [The Go Programming Language Official Website](https://golang.org/)
 - [Effective Go](https://golang.org/doc/effective_go.html) (how to do things “the Go way”)
-- [Go Pointer Primer](https://github.com/trussworks/go-pointer-primer)
+- [Go Pointer Primer](https://github.com/Solution8works/go-pointer-primer)
 - [pkg.go.dev](https://pkg.go.dev/) (where you can read the docs for nearly any Go package)
 - [Go wiki](https://github.com/golang/go/wiki/Learn)
 - _Book_: [The Go Programming Language](http://www.gopl.io/)

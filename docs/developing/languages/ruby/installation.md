@@ -12,7 +12,7 @@ for several reasons:
   should be assumed that everything under `/System/Library` is part of macOS and
   is administered by Apple. Files in those directories should not be modified.
 
-## The Trussel Way
+## The Solution8el Way
 
 We recommend installing and managing Ruby using asdf.
 
@@ -193,7 +193,7 @@ Using Docker makes sense if :
   review candidate work samples
 - You don't want to install anything locally
 
-1. [Install Docker](https://github.com/trussworks/Engineering-Playbook/tree/master/developing/docker#installation)
+1. [Install Docker](https://github.com/Solution8works/Engineering-Playbook/tree/master/developing/docker#installation)
 1. `cd` into the directory of the Ruby project you want to work with
 1. Run a bash shell in Docker: `docker run -it --rm=true -v $PWD:$PWD -w $PWD ruby:${DESIRED_RUBY_VERSION}-slim bash`
 

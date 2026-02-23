@@ -8,11 +8,11 @@ This directory is intended to be a central place with a list of recommended book
 
 ## Scope
 
-Being part of the Engineering Playbook, these suggestions may skew towards more technical topics over time, but in the near terms there may be other topics represented here (e.g. "how to teamwork", "how to share mental state", etc) that appeal to a broader base of Trussels who may not consider themselves "engineers".
+Being part of the Engineering Playbook, these suggestions may skew towards more technical topics over time, but in the near terms there may be other topics represented here (e.g. "how to teamwork", "how to share mental state", etc) that appeal to a broader base of Solution8els who may not consider themselves "engineers".
 
 ## Access
 
-Reminder: Trussels can use their [monthly employee effectiveness budget](https://docs.google.com/document/d/1hvie-sPwZgOw8U7W2qmCk6dzWf7TYX28_CRfFCWL_FI/edit) to get learning materials.
+Reminder: Solution8els can use their [monthly employee effectiveness budget](https://docs.google.com/document/d/1hvie-sPwZgOw8U7W2qmCk6dzWf7TYX28_CRfFCWL_FI/edit) to get learning materials.
 
 In addition to hard-copy books, there are several options for accessing digital books, audiobooks, videos, courses, etc.:
 

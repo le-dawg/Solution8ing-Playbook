@@ -4,8 +4,8 @@ sidebar_position: 3
 
 # Git Workflow
 
-At Truss, we've tried to come up with some standardized workflows for
-working with Git. This page hopes to capture them so that new Trussels
+At Solution8, we've tried to come up with some standardized workflows for
+working with Git. This page hopes to capture them so that new Solution8els
 can work cleanly with other developers and minimize friction.
 
 ## Branching Strategy
@@ -14,7 +14,7 @@ There are several well-established branching strategies and workflows out there.
 [This article](https://web.archive.org/web/20191115042322/https://medium.com/@patrickporto/4-branching-workflows-for-git-30d0aaee7bf) covers four leading types.
 
 Each project will have its own requirements, and sometimes even individual
-projects might need different approaches, but generally Truss recommends the
+projects might need different approaches, but generally Solution8 recommends the
 ["GitHub Flow"](https://guides.github.com/introduction/flow/), for its
 lightweight process and ease of use with [CI/CD](../../infrasec/ci_cd.md).
 

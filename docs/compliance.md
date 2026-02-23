@@ -1,3 +1,5 @@
-# Federal Compliance
+# Compliance
 
-This content has been migrated to the [Truss Project Team Playbook](https://playbook.truss.works/docs/01-how-we-execute/02-security-and-compliance/README/)
+This content has been migrated to the Solution8 Project Team Playbook.
+
+For compliance-related questions, please contact your team lead.

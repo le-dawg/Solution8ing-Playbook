@@ -5,7 +5,7 @@ sidebar_position: 2
 # Git Repos
 
 This page provides guidance on how to set up and manage your Git repos.
-For Truss, most of these will be kept in [GitHub](https://github.com),
+For Solution8, most of these will be kept in [GitHub](https://github.com),
 so much of this advice will be geared specifically to managing GitHub
 repositories.
 
@@ -16,7 +16,7 @@ as much as possible. However, we haven't had great luck creating repos with
 Terraform, so what we do is create the repo manually in GitHub, then import
 it into Terraform. For an example of how we've done that, and what Terraform
 code for GitHub repositories looks like, you can look in the
-[legendary-waddle repo](https://github.com/trussworks/legendary-waddle/tree/master/trussworks-prod/github-global).
+[legendary-waddle repo](https://github.com/Solution8works/legendary-waddle/tree/master/Solution8works-prod/github-global).
 
 ## Repo Maintenance and Hygiene
 
@@ -39,7 +39,7 @@ code for GitHub repositories looks like, you can look in the
   this on in GitHub, check the "Automatically delete head branches" box under
   the "Merge button" heading in the Options settings for your repo. If you're
   maintaining the repo with our
-  [terraform-github-repo](https://registry.terraform.io/modules/trussworks/repo/github)
+  [terraform-github-repo](https://registry.terraform.io/modules/Solution8works/repo/github)
   module, it will turn this on automatically.
 
 ## GitHub Repo Settings
@@ -50,7 +50,7 @@ code for GitHub repositories looks like, you can look in the
   - Require status checks to pass before merging
   - Include administrators
 
-  If you're maintaining the repo with our [terraform-github-repo](https://registry.terraform.io/modules/trussworks/repo/github)
+  If you're maintaining the repo with our [terraform-github-repo](https://registry.terraform.io/modules/Solution8works/repo/github)
   module, it will turn this on automatically.
 
 ## Splitting Out Code to a New Repository
@@ -86,7 +86,7 @@ git remote add origin git@github.com:OWNER/NEWREPO.git
 git push --set-upstream origin <main>
 ```
 
-Note: This repo should be public and properly licensed. Truss has a
+Note: This repo should be public and properly licensed. Solution8 has a
 :lock:[decision record][license_tdr] on what licenses should be applied to
 which sorts of projects.
 

@@ -2,10 +2,10 @@
 
 ## Overview
 
-This is a list of recommended tools used at Truss to enhance productivity and
+This is a list of recommended tools used at Solution8 to enhance productivity and
 developer happiness.
 
-You may also be interested in these other pages from the Truss Engineering Playbook:
+You may also be interested in these other pages from the Solution8 Engineering Playbook:
 
 import DocCardList from '@theme/DocCardList';
 

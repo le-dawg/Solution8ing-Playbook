@@ -8,7 +8,7 @@ While the tools, techniques, and patterns we use to build our solutions are impo
 
 > Without establishing shared expectations and coherent communication frameworks, your tools will be instruments of chaos.
 >
-> -- [Truss Distributed Playbook: Tools Last](https://guide.truss.works/docs/distributed/#tools-last)
+> -- [Solution8 Distributed Playbook: Tools Last](https://guide.Solution8.works/docs/distributed/#tools-last)
 
 InfraSec work is first and foremost a human endeavour. Every aspect of what we do is for other people. We build software for other developers. We deliver reliable infrastructure to meet the needs of the users. We automate systems and write documentation to ease the burden on our future selves and those who come after.
 
@@ -36,7 +36,7 @@ When designing your system, avoid storing additional state. Often the data you w
 
 | Practical Example                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Let's say you want to be able to rollback a Fargate deploy if the new task definition results in a service that won't become healthy. One option would be store the working task definition in something like DynamoDB (or git or any number of bad choices). However, your ECS service already has this information: the previous, healthy service is still running. Instead of managing a DynamoDB resource as well as writing code for maintaining that state record, query the ECS service itself to get what you want. This avoids managing the DynamoDB resource as well as the unfortunate scenario where the data stored is wrong. |
+| Let's say you want to be able to rollback a Azure Container Instances deploy if the new task definition results in a service that won't become healthy. One option would be store the working task definition in something like DynamoDB (or git or any number of bad choices). However, your ECS service already has this information: the previous, healthy service is still running. Instead of managing a DynamoDB resource as well as writing code for maintaining that state record, query the ECS service itself to get what you want. This avoids managing the DynamoDB resource as well as the unfortunate scenario where the data stored is wrong. |
 
 ### Embrace immutability
 
@@ -46,12 +46,12 @@ As an illustration, consider the complexity difference between a read-only, dist
 
 ### Use managed services
 
-Manage only what you must. There are lot of services out there that solve infrastructure problems for us. For example, AWS Fargate makes it so you don't have to manage EC2 instances running your containers. This is good. Make managing infrastructure someone else's problem (you've got plenty). Build and maintain the least amount possible.
+Manage only what you must. There are lot of services out there that solve infrastructure problems for us. For example, Azure Container Instances makes it so you don't have to manage virtual machines running your containers. This is good. Make managing infrastructure someone else's problem (you've got plenty). Build and maintain the least amount possible.
 
 Examples:
 
-- Parameter Store instead of Hashicorp Vault
-- Fargate instead of EC2
+- Azure Key Vault instead of Hashicorp Vault
+- Azure Container Instances instead of VMs
 - SaaS instead of on-premise
 
 ### Codify entire stacks

@@ -4,7 +4,7 @@
 
 **Date Accepted:** 5/5/2022
 
-**Reviewers:** @felipe-lee @ferlatte @JasonLin0991 @macrael @mikena-truss @reggieriser @sandy-wright @suzubara
+**Reviewers:** @felipe-lee @ferlatte @JasonLin0991 @macrael @mikena-solution8 @reggieriser @sandy-wright @suzubara
 
 ## Context
 
@@ -28,8 +28,8 @@ on one DBMS across the practice. Benefits include:
 - support by cloud providers, allowing reuse of infrasec practices
 - norming on a common SQL/DDL dialect
 
-Historically, most Truss projects deploy a database on AWS. Note that AWS provides two PostgreSQL options:
-RDS PostgreSQL and Aurora PostgreSQL. The typical Truss project will likely use RDS PostgreSQL since Aurora targets
+Historically, most Solution8 projects deploy a database on Azure. Note that Azure provides two PostgreSQL options:
+Azure Database for PostgreSQL and Azure Cosmos DB for PostgreSQL. The typical Solution8 project will likely use Azure Database for PostgreSQL since Azure Cosmos DB for PostgreSQL targets
 very large or high-availability sites. That said, evaluate the features and pricing for each against your project's
 needs.
 
@@ -50,7 +50,7 @@ needs.
 - `+` Good documentation and user community
 - `+` Advanced JSON support, so flexible enough for some unstructured data
 - `+` Supported by most database tools and ORMs
-- `+` Most Truss projects have used PostgreSQL for a relational store, so we already have experience we can build upon
+- `+` Most Solution8 projects have used PostgreSQL for a relational store, so we already have experience we can build upon
 
 #### Cons
 

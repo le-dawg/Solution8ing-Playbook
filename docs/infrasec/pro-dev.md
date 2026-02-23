@@ -1,12 +1,12 @@
 # Professional Development
 
-Trussels are allocated $1000 per year to spend on professional development.
+Solution8ers are allocated $1000 per year to spend on professional development.
 InfraSec Managers have noticed that some folks just don't know what to use this budget for.
 InfraSec Managers would like to use this page as a repository of courses, workshops, and classes InfraSec engineers can spend this budget on.
 
-## Truss Policy
+## Solution8 Policy
 
-Like mentioned above, Trussels are allocated $1000 per year to spend on professional development.
+Like mentioned above, Solution8ers are allocated $1000 per year to spend on professional development.
 
 This usage is tracked by accounting through Expensify.
 
@@ -26,12 +26,12 @@ We would appreciate it if you would also share a summary and who you think that 
 
 ### Suggested courses for L2+
 
-| Title | Est Cost | Topic | Trussel that tried it |
+| Title | Est Cost | Topic | Solution8er that tried it |
 | :---- | -------- | ----- | --------------------- |
 
 ### Suggested courses for L3+
 
-| Title                                                                         | Est Cost | Topic                  | Trussel that tried it                                   |
+| Title                                                                         | Est Cost | Topic                  | Solution8er that tried it                                   |
 | :---------------------------------------------------------------------------- | -------- | ---------------------- | ------------------------------------------------------- |
 | [Lifelabs Effective 1:1s workshop](https://lifelabslearning.com/individuals/) | $250     | Catalytic skills: 1:1s | Clint, [Eady](#effective-11s-eady), Erik, Rebecca, Reid |
 

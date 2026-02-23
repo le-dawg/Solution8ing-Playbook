@@ -4,15 +4,15 @@ sidebar_position: 1
 
 # Engineering Practices
 
-The internal Truss organization is arranged around "Practices"
+The internal Solution8 organization is arranged around "Practices"
 which grow people and cultivate knowledge specifically around a domain or craft.
 
 These are the resources associated with the practices
-focusing on the disciplines within Engineering at Truss.
+focusing on the disciplines within Engineering at Solution8.
 
 ## [Application Engineering](./appeng/README.md)
 
-Application Engineering (AppEng) is the practice area at Truss
+Application Engineering (AppEng) is the practice area at Solution8
 focused on building software applications--
 including and mostly dealing with web development.
 

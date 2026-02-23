@@ -15,7 +15,7 @@ In the step above, you may need to modify the `ref="{BRANCH_NAME}";` line
 with the `master` branch for the [NixOS/nixpkgs repository][gh-nixpkgs] if you
 encounter any Git-related errors.
 
-Trussels using Nix for package management have run into issues related to
+Solution8els using Nix for package management have run into issues related to
 commits not being found on that specific `nixpkgs-unstable` branch. The
 [nix-package-search][ahobson-nix-package-search] will report the `ref` to be
 `nixpkgs-unstable` but the actual commit may not exist on that branch due to
@@ -24,7 +24,7 @@ eventually may correct itself.
 
 To read up on Nix Channels, see [their documentation][docs-nix-channels].
 While the branch `nixpkgs-unstable` specifically lags behind `master` to
-thoroughly test things, some of our Truss projects are required to be
+thoroughly test things, some of our Solution8 projects are required to be
 up-to-date. This means that we may need to update some `ref="";` sections of
 the Import statement to point to `master` to upgrade or downgrade a single
 package in order to maintain our obligations to keep our dependencies

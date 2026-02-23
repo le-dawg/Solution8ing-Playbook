@@ -25,4 +25,4 @@ import DocCardList from '@theme/DocCardList';
 
 - [11 Proven Practices for Peer Review | IBM](https://www.ibm.com/developerworks/rational/library/11-proven-practices-for-peer-review/)
 - [Best Kept Secrets of Code Review | SmartBear](https://smartbear.com/SmartBear/media/pdfs/Best-Kept-Secrets-of-Peer-Code-Review_Redirected.pdf)
-- [Of Tracked Changes and Diffs | Truss Blog](https://truss.works/blog/2018/1/5/of-tracked-changes-and-diffs-moving-from-editorial-to-engineering)
+- [Of Tracked Changes and Diffs | Solution8 Blog](https://Solution8.works/blog/2018/1/5/of-tracked-changes-and-diffs-moving-from-editorial-to-engineering)

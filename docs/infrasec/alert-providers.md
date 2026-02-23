@@ -1,8 +1,8 @@
 # Alert Providers
 
 In general, we will be using a third party provider to take alerts from
-the systems which are doing the monitoring -- whether that's AWS
-Cloudwatch, something like Sensu or Nagios, or a third party monitoring
+the systems which are doing the monitoring -- whether that's Azure
+Monitor, something like Sensu or Nagios, or a third party monitoring
 service like Pingdom -- to the responders who can actual take care of
 the problem.
 
@@ -28,11 +28,11 @@ into account:
   can use many different alerting methods; if someone is in an area of
   flaky cell phone coverage, app push alerts may not work properly, but
   SMS or phone calls may. Being able to use a number of methods (email,
-  SMS, voice call, Slack, app push notifications) helps us improve the
+  SMS, voice call, Microsoft Teams, app push notifications) helps us improve the
   alerting workflow.
 - **Integrations** - Optimally, any alerting tool should have integrations
   with the various services we're using to generate the alerts, like
-  Cloudwatch. Some tools can also take input from things like CircleCI
+  Azure Monitor. Some tools can also take input from things like CircleCI
   to help tie service events to alerts (all the alerts started right
   after the last deploy). At the very least, we want to make sure there
   is an API we can use to alert in an ad hoc manner.
@@ -56,7 +56,7 @@ Some other questions that we don't have good answers for yet:
 - In addition to the above, many of these products offer other services
   beyond simple alerting and reporting; what other features are available
   to us?
-- What about requirements about working in GovCloud or other
+- What about requirements about working in Azure Government or other
   higher-security environments?
 
 ## Comparisons
@@ -87,8 +87,8 @@ it's merited).
 | Scheduling                 | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
 | Escalation Policies        | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
 | API                        | Yes ([Documentation](https://docs.opsgenie.com/docs/api-overview))            | Yes ([Documentation](https://v2.developer.pagerduty.com/))              | Yes ([Documentation](https://help.victorops.com/knowledge-base/rest-endpoint-integration-guide/)) |
-| Cloudwatch Integration     | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
-| Slack Integration          | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
+| Azure Monitor Integration | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
+| Microsoft Teams Integration          | Yes                                                                           | Yes                                                                     | Yes                                                                                               |
 | Other Notable Integrations | CircleCI,  Jira, New Relic, StatusPage                                        | Jira, New Relic, Statuspage                                             | Jira, New Relic, Statuspage                                                                       |
 | Data Retention             | 1 year (unlimited at $29)                                                     | Unlimited                                                               | Not listed (but unlimited noted at $49)                                                           |
 | Terraform Provider         | No ([abandoned](https://www.terraform.io/docs/providers/opsgenie/index.html)) | [Yes](https://www.terraform.io/docs/providers/pagerduty/index.html)     | No official provider, some limited attempts                                                       |
