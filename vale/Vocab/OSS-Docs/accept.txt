@@ -6,8 +6,8 @@ Webpack
 API
 config
 Precommit
-TrussWorks
-Trussel(s)?
+Solution8
+Solution8er(s)?
 (?i)Variadic
 (?i)Validator
 (?i)psql

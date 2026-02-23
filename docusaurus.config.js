@@ -21,7 +21,7 @@ module.exports = {
       title: 'Engineering Playbook',
       logo: {
         alt: 'Solution8 Logo',
-        src: 'img/truss-icon-light.png',
+        src: 'img/solution8-icon-light.png',
       },
       items: [
         {

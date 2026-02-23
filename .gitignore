@@ -29,7 +29,7 @@ yarn.lock
 .npmglobal
 
 # fresh-brew
-# These files are meant to be updated in the trussworks/fresh-brew repo
+# These files are meant to be updated in the Solution8/fresh-brew repo
 Brewfile
 pour.sh
 Brewfile.local.lock.json

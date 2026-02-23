@@ -2,7 +2,7 @@
 
 ## Repository Overview
 
-This is the **Truss Engineering Playbook**, a Docusaurus-based documentation website deployed at [playbook.truss.dev](https://playbook.truss.dev/). It contains engineering practices, standards, and guidelines for TrussWorks.
+This is the **Solution8 Engineering Playbook**, a Docusaurus-based documentation website deployed at [le-dawg.github.io](https://le-dawg.github.io). It contains engineering practices, standards, and guidelines for Solution8.
 
 **Repository Type:** Documentation website  
 **Primary Language:** Markdown (152+ .md files)  
@@ -227,7 +227,7 @@ pre-commit run --all-files
 
 ### Deployment
 
-- **Target:** GitHub Pages at trussworks.github.io/Engineering-Playbook/
+- **Target:** GitHub Pages at le-dawg.github.io/Solution8ing-Playbook/
 - **Trigger:** Every push to main branch
 - **Build Output:** `/build` directory
 - **Deploy Action:** JamesIves/github-pages-deploy-action@v4.5.0
