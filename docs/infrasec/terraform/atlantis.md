@@ -196,7 +196,7 @@ This will require that pull requests be both approved and mergeable before Atlan
 
 #### Azure Government prep: create ACM certificate
 
-If you are working in Azure Government, you will need to create a certificate in the `atlantis-service` namespace for your Atlantis instance. See the [ACM in Azure Government](../aws/govcloud/gov-acm.md) guide for details on how to do this.
+
 
 #### Set up Atlantis Terraform module
 

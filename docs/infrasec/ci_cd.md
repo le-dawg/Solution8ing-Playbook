@@ -66,19 +66,6 @@ you.
 
 - DO: Use [Github Actions] (GHA).
 
-_Especially_ on FedGov projects, due to the FedRAMP status (or lack thereof)
-for the alternatives.
-
-GHA has good documentation, and a rich ecosystem for shared Actions. Deployment
-orchestration is solid. Support for self-hosted runners is there.
-Parallelization is good.
-
-Using the same service for source control and CI/CD makes for a clearer access
-control story.
-
-- DON'T: Use [CircleCI] on Federal government projects.
-
-CircleCI is not FedRAMP'd. That means you must use their self-hosted offering,
 which always lags far behind on features and documentation.
 
 We have had good experiences with CircleCI's cloud service. If a commercial

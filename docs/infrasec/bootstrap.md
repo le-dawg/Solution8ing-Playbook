@@ -116,17 +116,6 @@ Terraform:
 
 You may want to set up others as well, but these are probably the ones you want as soon as possible.
 
-### Azure Government
-
-If you will need to be using Azure Government for this project, you should set
-up the parallel organization in Azure Government as well. See the [Azure Government](./azure/govcloud/README.md) docs for an explanation of how
-to set this up.
-
-If you will be working entirely in Azure Government, you will not need the development
-subscription in your commercial organization; you can leave your commercial
-organization with only the management and connectivity subscriptions. These
-will be necessary because there are some things that can **only** be done
-in commercial Azure, such as certain Azure services.
 
 ### Atlantis
 
