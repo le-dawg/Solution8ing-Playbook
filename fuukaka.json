@@ -1,0 +1,278 @@
+{
+  "Truss": {
+    "category": "entity",
+    "type": "organization",
+    "example": "Hello, and welcome to Truss!",
+    "relevance": "high"
+  },
+  "Trussels": {
+    "category": "entity",
+    "type": "member-term",
+    "example": "Many Trussels work from home.",
+    "relevance": "high"
+  },
+  "Trussels' Guide to Truss": {
+    "category": "onboarding",
+    "type": "document",
+    "example": "This is the Trussels’ Guide to Truss, written by Trussels for Trussels.",
+    "relevance": "high"
+  },
+  "@truss.works": {
+    "category": "onboarding",
+    "type": "email-domain",
+    "example": "You’ll need to log in to your `username@truss.works` email account",
+    "relevance": "medium"
+  },
+  "Truss-supplied laptop": {
+    "category": "onboarding",
+    "type": "equipment",
+    "example": "You should have received your Truss-supplied laptop.",
+    "relevance": "medium"
+  },
+  "sweet spot overlap 10a-2p Pacific / 1p-5p Eastern": {
+    "category": "onboarding",
+    "type": "time-reference",
+    "example": "The sweet spot when most Trussels’ work hours overlap is 10a-2p Pacific / 1p-5p Eastern",
+    "relevance": "medium"
+  },
+  "Pre-First-Day": {
+    "category": "onboarding",
+    "type": "phase",
+    "example": "Pre-First-Day → What to expect on your first day",
+    "relevance": "high"
+  },
+  "First day": {
+    "category": "onboarding",
+    "type": "phase",
+    "example": "First day → Getting started on the tools we use",
+    "relevance": "high"
+  },
+  "onboarding buddy": {
+    "category": "onboarding",
+    "type": "role",
+    "example": "You’ll meet with your onboarding buddy at Truss.",
+    "relevance": "medium"
+  },
+  "Paylocity": {
+    "category": "tool",
+    "type": "payroll",
+    "example": "Tool: Paylocity (payroll provider and bridge to benefits)",
+    "relevance": "medium"
+  },
+  "Google Mail": {
+    "category": "tool",
+    "type": "email",
+    "example": "Tool: Google Mail (email)",
+    "relevance": "medium"
+  },
+  "1Password": {
+    "category": "tool",
+    "type": "password management",
+    "example": "Security Tool: 1Password (password management)",
+    "relevance": "medium"
+  },
+  "Kandji": {
+    "category": "tool",
+    "type": "device management",
+    "example": "Security Tool: Kandji (device management)",
+    "relevance": "medium"
+  },
+  "Bitdefender": {
+    "category": "tool",
+    "type": "antivirus",
+    "example": "Security Tool: Bitdefender",
+    "relevance": "medium"
+  },
+  "Backblaze": {
+    "category": "tool",
+    "type": "backup",
+    "example": "Security Tool: Backblaze (backup)",
+    "relevance": "medium"
+  },
+  "Slack": {
+    "category": "tool",
+    "type": "communication",
+    "example": "Use Slack, not email",
+    "relevance": "high"
+  },
+  "/define": {
+    "category": "tool",
+    "type": "slackbot",
+    "example": "We use a handy slackbot called `/define`.",
+    "relevance": "medium"
+  },
+  "Zoom": {
+    "category": "tool",
+    "type": "videoconferencing",
+    "example": "Our other major communication tool is Zoom, for video conferencing.",
+    "relevance": "medium"
+  },
+  "Harvest": {
+    "category": "tool",
+    "type": "timekeeping",
+    "example": "We keep track of our time using a tool called Harvest.",
+    "relevance": "medium"
+  },
+  "Expensify": {
+    "category": "tool",
+    "type": "expense tracking",
+    "example": "We track our expenses in Expensify.",
+    "relevance": "medium"
+  },
+  "Retrium": {
+    "category": "tool",
+    "type": "retro support",
+    "example": "Tool: Retrium (retro support)",
+    "relevance": "low"
+  },
+  "Prac": {
+    "category": "meeting",
+    "type": "all-hands",
+    "example": "Friday Practitioners Meetings (a.k.a. Prac)",
+    "relevance": "medium"
+  },
+  "Being Humans Together": {
+    "category": "meeting",
+    "type": "social",
+    "example": "Being Humans Together chat (optional). These happen on Fridays at 9:30 Pacific/12:30 Eastern",
+    "relevance": "medium"
+  },
+  "OTT": {
+    "category": "meeting",
+    "type": "presentation slot",
+    "example": "One Topic Talks (OTT)",
+    "relevance": "medium"
+  },
+  "AMA": {
+    "category": "meeting",
+    "type": "leadership Q&A",
+    "example": "Ask Me Anything (AMA) hosted every other Friday",
+    "relevance": "medium"
+  },
+  "Quarterly stakeholders meetings": {
+    "category": "meeting",
+    "type": "all-company",
+    "example": "Quarterly stakeholders meetings with Truss Leadership Team",
+    "relevance": "medium"
+  },
+  "Manager 1:1s": {
+    "category": "meeting",
+    "type": "one-on-one",
+    "example": "Meeting: Manager 1:1s",
+    "relevance": "medium"
+  },
+  "#general": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "Say “hi” in #general on Slack",
+    "relevance": "medium"
+  },
+  "#onboarding": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "ask about it in #onboarding on Slack",
+    "relevance": "medium"
+  },
+  "#prac": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "You’ve been added to 9 default channels: including #prac",
+    "relevance": "medium"
+  },
+  "#colleagues-and-coffee": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "Join #colleagues-and-coffee to be automatically paired every 3 weeks for a 'donut' with another Trussel.",
+    "relevance": "medium"
+  },
+  "#love": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "default channel: #love",
+    "relevance": "low"
+  },
+  "#rage_cage": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "#rage_cage: Vent frustrations IN ALL CAPS",
+    "relevance": "low"
+  },
+  "#rave_cave": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "#rave_cave: A place to share things that make you the happiest",
+    "relevance": "low"
+  },
+  "#celebrations": {
+    "category": "channel",
+    "type": "slack-channel",
+    "example": "celebrate your birthday or Trusselversary, join us in #celebrations",
+    "relevance": "low"
+  },
+  "distributed-first": {
+    "category": "practice",
+    "type": "value",
+    "example": "We are a distributed-first business.",
+    "relevance": "high"
+  },
+  "Diversity, Equity, & Inclusion": {
+    "category": "practice",
+    "type": "value",
+    "example": "Practice: Diversity, Equity, & Inclusion are in the DNA of Truss.",
+    "relevance": "high"
+  },
+  "Insider Language": {
+    "category": "practice",
+    "type": "value",
+    "example": "Practice: Insider Language",
+    "relevance": "medium"
+  },
+  "Use Slack, not email": {
+    "category": "practice",
+    "type": "communication norm",
+    "example": "Practice: Use Slack, not email",
+    "relevance": "high"
+  },
+  "Communication Expectations": {
+    "category": "resource",
+    "type": "document",
+    "example": "Resource: Communication Expectations",
+    "relevance": "medium"
+  },
+  "RACI": {
+    "category": "value",
+    "type": "framework",
+    "example": "We often think of things within the RACI framework",
+    "relevance": "low"
+  },
+  "distributed communications principles": {
+    "category": "resource",
+    "type": "principles",
+    "example": "distributed communications principles and practices",
+    "relevance": "low"
+  },
+  "Glue work": {
+    "category": "value",
+    "type": "work-type",
+    "example": "Glue work is work that helps projects be successful",
+    "relevance": "low"
+  },
+  "SLACK NORMS": {
+    "category": "resource",
+    "type": "norms",
+    "example": "SLACK NORMS: respond to Slack messages within 24 hours.",
+    "relevance": "medium"
+  },
+  "ACT WITHOUT FEAR": {
+    "category": "value",
+    "type": "motto",
+    "example": "Truss values: ACT WITHOUT FEAR and PURSUE MASTERY",
+    "relevance": "low"
+  },
+  "PURSUE MASTERY": {
+    "category": "value",
+    "type": "motto",
+    "example": "Truss values: ACT WITHOUT FEAR and PURSUE MASTERY",
+    "relevance": "low"
+  }
+}

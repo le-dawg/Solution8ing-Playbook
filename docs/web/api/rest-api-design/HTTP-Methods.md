@@ -72,7 +72,7 @@ Content-Type: application/json
   "city": "Alameda",
   "state": "CA",
   "postalCode": "94501",
-  "country": "USA"
+  "country": "Denmark"
 }
 ```
 

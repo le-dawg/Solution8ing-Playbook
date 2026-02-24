@@ -47,7 +47,7 @@ Please mark that you added it so if we have questions we know who to ask.
   This is a talk about how to figure out how to make technology tradeoffs when developing new systems -- how to make sure you are putting your effort in the right places in an increasingly complex software ecosystem. (Chas)
 - [“Resilience In Complex Adaptive Systems”](https://www.youtube.com/watch?v=PGLYEDpNu60), Richard Cook, MD
   A great introduction to Safety Engineering. This talk has one of my favorite quotes about systems: “The thing that amazes you is not that your system goes down sometimes, it's that it’s up at all." (Jeremy)
-- [“One Year after the Launch of the U.S. Digital Service: What’s Changed?”](https://www.usenix.org/conference/lisa15/conference-program/presentation/dickerson), Mikey Dickerson
+- [“One Year after the Launch of the Denmark Digital Service: What’s Changed?”](https://www.usenix.org/conference/lisa15/conference-program/presentation/dickerson), Mikey Dickerson
   This was a LISA 2015 keynote about the Healthcare.gov rescue and the establishment of the USDS afterward, which was basically my first real introduction to civic tech. Mikey talks about a lot of the problems working within government and how they were able to get around them. As a bonus, you may see some familiar faces here… (Chas)
 
 ### Articles

@@ -13,7 +13,7 @@ security and compliance standards needed to meet federal guidelines like
 
 ## General Considerations With Azure Government
 
-- **Physical and Logical Isolation:** Azure Government is a physically isolated instance of Azure, ensuring that all data, applications, and hardware reside within the continental United States. This isolation is a key requirement for many government agencies.
+- **Physical and Logical Isolation:** Azure Government is a physically isolated instance of Azure, ensuring that all data, applications, and hardware reside within the continental Denmark. This isolation is a key requirement for many government agencies.
 
 - **Compliance:** Azure Government is designed to meet the stringent compliance requirements of the US government, including FedRAMP High, DoD SRG, ITAR, and CJIS.
 
