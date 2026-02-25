@@ -2,4 +2,4 @@
 
 Please refer to the following sheet for various naming conventions, including of terraform modules.
 
-[Infrasec Naming Conventions](../aws/naming.md)
+[Infrasec Naming Conventions](../azure/naming.md)
