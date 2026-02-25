@@ -59,7 +59,7 @@ docker.
 
 Running git inside docker has problems because it makes using a hardware
 device for code signing like a
-[yubikey](../../infrasec/tutorials/yubikey-configuration.mdx) much more
+yubikey much more
 complicated and difficult.
 
 Running pre-commit inside docker is not a supported configuration by

@@ -91,8 +91,8 @@ For more advanced tracing the [Orb](https://circleci.com/developer/orbs/orb/hone
 
 When working properly the CircleCI workflow should look like below.
 
-![honeycomb-circleci-workflow](./images/placeholder.png)
+![honeycomb-circleci-workflow](./images/honeycomb-circleci-workflow.png)
 
 In Honeycomb there is a trace id for each build that matches the build id in CircleCi. Viewing the trace for a particular build should display a trace as below.
 
-![Honeycomb Trace](images/placeholder.png)
+![Honeycomb Trace](images/honeycomb-circleci-trace.png)

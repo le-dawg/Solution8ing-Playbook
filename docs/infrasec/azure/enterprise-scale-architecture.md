@@ -6,7 +6,7 @@ As security best practices prefer subscription boundaries over RBAC policies as 
 
 ## Solution8 Patterns
 
-As Solution8 has begun adopting Azure enterprise-scale architecture for most of our new projects, we have developed a number of patterns for organizations. For a more thorough description of the process of bootstrapping a new Azure environment, see the [Bootstrapping an Azure Environment](bootstrap.md) document, but below is a brief description of the patterns we've adopted.
+As Solution8 has begun adopting Azure enterprise-scale architecture for most of our new projects, we have developed a number of patterns for organizations. For a more thorough description of the process of bootstrapping a new Azure environment, see the [Bootstrapping an Azure Environment](azure-bootstrap.md) document, but below is a brief description of the patterns we've adopted.
 
 ### Management Groups
 

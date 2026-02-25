@@ -9,8 +9,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build Docusaurus from source
         run: npm run build
