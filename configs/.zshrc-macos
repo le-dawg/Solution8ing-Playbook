@@ -20,6 +20,7 @@ fi
 # ====== 2. PYTHON SAFETY OVERRIDES ======
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DISABLE_PIP_VERSION_CHECK=1
+# Disable bare `python` to force venv usage. Activate a venv or use `python3` explicitly.
 alias python='/usr/bin/false'
 
 # ====== 3. CUPS PDF HELPER ======
