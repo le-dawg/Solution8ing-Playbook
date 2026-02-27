@@ -110,7 +110,7 @@ For Azure-oriented modules and stacks, ensure CI runs at least:
 - `terraform validate`
 - `terraform plan` against an Azure workspace/state backend
 
-For deeper integration tests, use a lightweight Terraform apply in a disposable Azure subscription/resource group or write Terratest cases that target Azure resources.
+Include automated tests for modules (e.g., Terratest or equivalent) that exercise Azure resources where practical. For deeper integration tests, use a lightweight Terraform apply in a disposable Azure subscription/resource group or write Terratest cases that target Azure resources.
 
 [draft-release]: images/draft-release.png "Screenshot of a release draft"
 [publish-release]: images/publish-release.png "Screenshot of a published release"

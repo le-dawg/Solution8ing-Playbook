@@ -54,7 +54,7 @@ up your infrastructure, so doing it as early as possible is a good idea.
      resources in Azure Government, as many of ours do, you will need another repo
      for the Terraform used for that. This is for two reasons; one, we
      generally want tighter permissions on who has access to this repo, and
-     second, separating commercial and government infrastructure reduces risk.
+     second, separating commercial and government infrastructure reduces risk by limiting blast radius and keeping compliance boundaries distinct.
 - If at all possible, you should be using Terraform to maintain the users,
   teams, and repos for your project. The catch being that you'll need your
   `myproject-infra` repo first.
