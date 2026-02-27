@@ -22,7 +22,6 @@ repos:
           - mdformat-gfm
           - mdformat-toc
           - mdformat-frontmatter
-          - mdformat-linkify
 
 
   - repo: local
