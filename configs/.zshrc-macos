@@ -1,0 +1,36 @@
+# ========================
+# Solution8 macOS Zsh Config (Apple Silicon Optimized)
+# ========================
+
+# ====== 1. PATH PRIORITIZATION (The "Don't Fuck Up My OS" Section) ======
+# Priority: Volta > Local Bin > Homebrew > System
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$HOME/.local/bin:$PATH"
+
+if [ -d /opt/homebrew/bin ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+elif [ -d /usr/local/bin ]; then
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  export PATH="$VOLTA_HOME/bin:$HOME/.local/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+fi
+
+# ====== 2. PYTHON SAFETY OVERRIDES ======
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DISABLE_PIP_VERSION_CHECK=1
+alias python='/usr/bin/false'
+
+# ====== 3. CUPS PDF HELPER ======
+genpdf() {
+  if [ -z "$1" ]; then
+    echo "Usage: genpdf <input-file> [output.pdf]" >&2
+    return 1
+  fi
+
+  local input="$1"
+  local output="${2:-${input%.*}.pdf}"
+
+  cupsfilter "$input" > "$output"
+}

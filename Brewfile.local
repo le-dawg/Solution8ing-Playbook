@@ -1,2 +1,3 @@
-brew 'nodenv'
+brew 'volta'
+brew 'uv'
 brew 'pre-commit'
