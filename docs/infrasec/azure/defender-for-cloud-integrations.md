@@ -4,10 +4,6 @@ Ideally our infrastructure is flawless and impenetrable, but much of our work re
 
 Our intent is to have a system which notifies regarding Microsoft Defender for Cloud alerts on two integration channels (PagerDuty and Microsoft Teams), depending on the kind of alert.
 
-## Information Flow
-
-![Azure Alerting Information Flow](images/azure-alerting-info-flow.png)
-
 ## Microsoft Defender for Cloud Setup
 
 Using Microsoft Defender for Cloud with Azure Management Groups allows us to designate a central subscription to "roll up" all findings for member subscriptions, aggregating findings in one place. You should enable Microsoft Defender for Cloud on all subscriptions in your management group.

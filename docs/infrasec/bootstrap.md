@@ -15,7 +15,6 @@ need to set up your own.
 - [1Password](#1password)
 - [Azure Organization and Subscriptions](#azure-organization-and-subscriptions)
   - [Azure Government](#azure-government)
-  - [Atlantis](#atlantis)
   - [Placeholder service modules](#placeholder-service-modules)
 - [CI/CD Pipeline](#cicd-pipeline)
 
@@ -51,12 +50,11 @@ up your infrastructure, so doing it as early as possible is a good idea.
     repos for the frontend and backend, for instance. Neither of these
     is inherently correct, so consult with the AppEng lead (if you have
     one) to make this decision.
-  - `myproject-infra-gov` - If your project is going to need to have
-    resources in Azure Government, as many of ours do, you will need another repo
-    for the Terraform used for that. This is for two reasons; one, we
-    generally want tighter permissions on who has access to this repo, and
-    second, if we want to have [Atlantis](https://runatlantis.io) handling
-    the infrastructure in these subscriptions, we need a separate repo.
+   - `myproject-infra-gov` - If your project is going to need to have
+     resources in Azure Government, as many of ours do, you will need another repo
+     for the Terraform used for that. This is for two reasons; one, we
+     generally want tighter permissions on who has access to this repo, and
+     second, separating commercial and government infrastructure reduces risk by limiting blast radius and keeping compliance boundaries distinct.
 - If at all possible, you should be using Terraform to maintain the users,
   teams, and repos for your project. The catch being that you'll need your
   `myproject-infra` repo first.
@@ -116,18 +114,6 @@ Terraform:
 
 You may want to set up others as well, but these are probably the ones you want as soon as possible.
 
-
-### Atlantis
-
-If you plan to use [Atlantis](https://runatlantis.io) to maintain your
-Terraform (which we highly recommend), you should also consider setting
-this up early. We have an [Atlantis doc](./terraform/atlantis.md) that
-will help you set this up.
-
-Setting up Atlantis early will get your engineers used to the workflow
-and encourage good Terraform habits from the start. This will mean less
-headaches later trying to figure out which changes are expected and which
-are not.
 
 ### Placeholder service modules
 

@@ -20,6 +20,6 @@ Now, we want to navigate to the `Installed GitHub Apps` page under the le-dawg G
 
 Here is where you'll find the `Repository Access` section under `CircleCI Checks`. For the final step, all that needs to be done is to add the repository you're fixing to the list of selected repositories and save this change.
 
-![Repository Access](images/placeholder.png "Repository Access")
+![Repository Access](images/github-circleci-checks-repo-access.png "Repository Access")
 
 To confirm that the CircleCI integration has been fixed, commit a new change and verify that this time a CircleCI status check appears next to the commit hash in GitHub.

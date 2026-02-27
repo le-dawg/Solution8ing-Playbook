@@ -26,7 +26,7 @@ from HashiCorp's Learning platform.
 
 We often start out with Terraform code embedded into the infrastructure for a specific project before we decide we want to publish a chunk of it as stand-alone module. When moving code from one git repository to another, it is useful to maintain the revision history. To split a git repository while preserving the history, see [this page](../../developing/vcs/git-repos.md) in the Engineering Playbook.
 
-Once the Terraform code has been split into a separate repo, you can add the usual trimmings for a Terraform module: README, pre-commit/CircleCI configuration, terratest(s), etc.
+Once the Terraform code has been split into a separate repo, you can add the usual trimmings for a Terraform module: README, pre-commit/CircleCI configuration, and module documentation.
 
 Before going public, consider sourcing the module from github as described in the [sources](https://www.terraform.io/docs/modules/sources.html) documentation to confirm that no changes are planned after the migration.
 
@@ -88,9 +88,15 @@ If the steps outlined in the above link do not work, try publishing a new patch 
 
 Refer to the Solution8 [`terraform state mv` info sheet](terraform-state-mv.md).
 
-### Terraform import
+### Terraform import (Azure)
 
-Refer to the Solution8 [`terraform import` info sheet](terraform-import.md).
+Azure resources can be imported with `terraform import` using the AzureRM provider. A common pattern is to map an existing resource ID into state, then align its configuration. Example (Azure Storage account):
+
+```bash
+terraform import azurerm_storage_account.example "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<account-name>"
+```
+
+See the AzureRM provider docs for resource-specific import syntax.
 
 ### How to layout/structure a Terraform Project
 
@@ -98,7 +104,13 @@ Refer to the Solution8 [Terraform Layout Example](https://github.com/le-dawg/ter
 
 ### How to test your Terraform code
 
-Refer to the Solution8 [Terratest Guide](terratest.md).
+For Azure-oriented modules and stacks, ensure CI runs at least:
+
+- `terraform fmt -check`
+- `terraform validate`
+- `terraform plan` against an Azure workspace/state backend
+
+Include automated tests for modules (e.g., Terratest or equivalent) that exercise Azure resources where practical. For deeper integration tests, use a lightweight Terraform apply in a disposable Azure subscription/resource group or write Terratest cases that target Azure resources.
 
 [draft-release]: images/draft-release.png "Screenshot of a release draft"
 [publish-release]: images/publish-release.png "Screenshot of a published release"

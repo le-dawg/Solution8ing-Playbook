@@ -19,7 +19,6 @@ repos:
     hooks:
       - id: mdformat
         additional_dependencies:
-          - mdformat-gfm
           - mdformat-toc
           - mdformat-frontmatter
 
