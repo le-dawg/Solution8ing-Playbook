@@ -57,17 +57,11 @@ environment when committing code. This means either running git inside
 docker or trying to find a way to run your pre-commit hooks inside
 docker.
 
-Running git inside docker has problems because it makes using a hardware
-device for code signing like a
-yubikey much more
-complicated and difficult.
+Running git inside docker has problems because it makes using direct hardware access much more difficult.
 
-Running pre-commit inside docker is not a supported configuration by
-pre-commit which takes us even farther away from the well worn path.
+Running pre-commit inside docker is not a supported configuration by pre-commit which takes us even farther away from the well worn path.
 
-Finally, configuring local tooling like editors to use the docker
-development environment is generally much more complicated that
-configuring it to use a native development environment.
+Finally, configuring local tooling like editors to use the docker development environment is generally much more complicated than configuring it to use a native development environment.
 
 For all of these reasons, a native development environment seems like
 a less risky path forward.
@@ -79,12 +73,12 @@ docker and a native development environment.
 
 Homebrew has more packages than `nix`, and installs them globally. For
 certain things, that might work great. However, that doesn't give
-projects reproducible installs.
+local, non-cloud projects reproducible installs.
 
 One other difference is that versions of particular packages may be more
 up to date in one or the other. E.g. as of this writing, homebrew's
-`watchman` version is `2021.06.07.00` but `nix` is on `4.9.0`, which is
-from sometime in 2017 or 2018.
+`watchman` version is `2026.01.12.00` but `nix` is on `2026.01.19.00`, which can be an issue if not careful.
+
 
 ## Installation
 

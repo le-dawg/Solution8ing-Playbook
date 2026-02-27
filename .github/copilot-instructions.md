@@ -4,10 +4,10 @@
 
 This is the **Solution8 Engineering Playbook**, a Docusaurus-based documentation website deployed at [le-dawg.github.io](https://le-dawg.github.io). It contains engineering practices, standards, and guidelines for Solution8.
 
-**Repository Type:** Documentation website  
-**Primary Language:** Markdown (152+ .md files)  
-**Framework:** Docusaurus v2.3.0 (React-based static site generator)  
-**Node Version:** 18.19.1 (specified in `.node-version`)  
+**Repository Type:** Documentation website
+**Primary Language:** Markdown (152+ .md files)
+**Framework:** Docusaurus v2.3.0 (React-based static site generator)
+**Node Version:** 18.19.1 (specified in `.node-version`)
 **Repository Size:** ~535MB (with node_modules)
 
 ## Critical Build Information

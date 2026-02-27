@@ -6,7 +6,7 @@ As security best practices prefer subscription boundaries over RBAC policies as 
 
 ## Solution8 Patterns
 
-As Solution8 has begun adopting Azure enterprise-scale architecture for most of our new projects, we have developed a number of patterns for organizations. For a more thorough description of the process of bootstrapping a new Azure environment, see the [Bootstrapping an Azure Environment](azure-bootstrap.md) document, but below is a brief description of the patterns we've adopted.
+As Solution8 begins adopting Azure enterprise-scale architectures for new projects, we are quickly identifying and collecting a number of patterns for organizations. For a more thorough description of the process of bootstrapping a new Azure environment, see the [Bootstrapping an Azure Environment](../bootstrap.md) document, but below is a brief description of the patterns we've adopted.
 
 ### Management Groups
 
@@ -31,8 +31,9 @@ These are the best practices gleaned from online resources and our experiences o
 
 - **Use Azure Policy to enforce standards:** Azure Policy is a powerful tool for enforcing standards and compliance across your organization. We recommend using policies to enforce tagging, allowed resource types, and other governance standards.
 - **Use Azure RBAC to control access:** Azure Role-Based Access Control (RBAC) is a powerful tool for controlling access to Azure resources. We recommend using RBAC to grant users the minimum level of access they need to do their jobs.
-- **Use a CI/CD pipeline to deploy infrastructure:** We recommend using a CI/CD pipeline to deploy infrastructure as code. This helps to ensure that your infrastructure is deployed in a consistent and repeatable way.
-
+- **Do not use a CI/CD pipeline to deploy infrastructure:** Ideally, we'd always use a CI/CD pipeline to deploy infrastructure as code. This helps to ensure that your infrastructure is deployed in a consistent and repeatable way. But this breaks down easily in Azure, when the state of the Control Plane cannot be reliably queried due to, for instance, limited permissions for our users in a client's tenant. Therefore, unless we have tested in conditions that are very close to the real state of the production system, it is better to wait it out. This is especially true when working in highly regulated environments, where change requests take long. So, in a nutshell:
+  - Greenfield Project (no Azure systems at all): go right ahead with IaC!
+  - Brownfield Project (existing systems in Azure): ask for the highest possible permissions in a separate subscription or directory, even if temporary and eligible. If the client is in a highly regulated environment, avoid this at all costs unless you have an SME on the client team that has at least 3-years of full time experience and the certs in Azure DevOps.
 ## External links
 
 1. [Azure enterprise-scale architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/)
