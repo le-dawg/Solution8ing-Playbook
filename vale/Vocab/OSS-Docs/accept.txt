@@ -26,13 +26,11 @@ MyMove
 MilMove
 Dependabot
 Happo
-YubiKey
 (?i)frontmatter
 Formik
 (?i)boolean
 Jira
 CAC
-GovCloud
 Golang
 Goland
 Kibana
@@ -56,7 +54,6 @@ Linux
 Yaml
 csv
 Middleware
-CloudWatch
 DoD
 Loki
 (?i)mixins

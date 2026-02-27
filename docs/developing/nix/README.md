@@ -272,11 +272,11 @@ if you are curious.
 In the main profiles section we mention having profiles at a global and
 repo level. You can also have profiles on a per-project basis.
 
-E.g. for MilMove, you might want a profile that contains things like
-`aws-vault`, `chamber`, etc. which spans more than just the `mymove`
+E.g. for MilMove, you might want a profile that contains shared tooling
+which spans more than just the `mymove`
 repo. On the other hand, you may not want to use a global profile
 (like the default one mentioned in the next section) because you may
-need different versions of `aws-vault` for different projects.
+need different versions of tools for different projects.
 
 #### Creating a Profile
 

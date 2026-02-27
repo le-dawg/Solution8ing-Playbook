@@ -32,7 +32,7 @@ Each role contains *tasks*; these tasks could be installing a package, writing o
 restarting a service, or even running an arbitrary shell script. These are defined via YAML configurations. A role may
 also contain other components, such as variables or handlers.
 
-Ansible modules can be tested with [Molecule](molecule-primer.md), which is the Red Hat-supported automated testing
+Ansible modules can be tested with [Molecule](https://molecule.readthedocs.io/), which is the Red Hat-supported automated testing
 method. Molecule can be configured to spin up a docker container or Azure VM instance, among other providers, and run your
 role in isolation to make sure it works as intended. Molecule will also use
 [ansible-lint](https://github.com/ansible/ansible-lint) to lint your modules, which we recommend you install as a
