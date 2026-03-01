@@ -56,7 +56,7 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 ### Other Examples
 
 - [terraform-azurerm-alb-web-containers](https://github.com/Solution8works/terraform-azurerm-alb-web-containers)
-- [terraform-azure-ecs-service](https://github.com/Solution8works/terraform-azurerm-ecs-service)
+- [terraform-azurerm-ecs-service](https://github.com/Solution8works/terraform-azurerm-ecs-service)
 - [terraform-azurerm-logs](https://github.com/Solution8works/terraform-azurerm-logs/)
 
 ## Run manually
