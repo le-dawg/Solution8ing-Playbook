@@ -13,7 +13,7 @@ These resources will likely come in handy when trying to get Molecule up and run
 - Test-driven Infrastructure Development with Ansible and Molecule (Jonas Hecht):
   <https://blog.codecentric.de/en/2018/12/test-driven-infrastructure-ansible-molecule/>
 - Continuous Cloud Infrastructure With Ansible, Molecule, and TravisCI on Azure (Jonas Hecht):
-  <https://blog.codecentric.de/en/2019/01/ansible-molecule-travisci-aws/>
+  <https://blog.codecentric.de/en/2019/01/ansible-molecule-travisci-Azure/>
 
 ## Setup
 
@@ -65,7 +65,7 @@ example of that file:
 
 ```yml
 ---
-- src: https://github.com/Solution8works/ansible-role-aws-cloudwatch-logs-agent
+- src: https://github.com/Solution8works/ansible-role-azure-cloudwatch-logs-agent
 ```
 
 Once you have everything configured, you can make sure that Molecule is plumbed right by running this command:
@@ -86,11 +86,11 @@ Linux 2 and a number of other distros, this will actually be “ec2-user”. Thi
 find this in `molecule/scenario_name/create.yml`; look for the “ssh_user” variable and change that to what it needs to
 be for your AMI.
 
-In addition, you’ll also need to provide credentials. I used aws-vault, but I didn’t want to preface *all* Molecule
-commands with aws-vault, so when I ran it, I just prefaced each of my Molecule commands with aws-vault like this
+In addition, you’ll also need to provide credentials. I used azure-keyvault, but I didn’t want to preface *all* Molecule
+commands with azure-keyvault, so when I ran it, I just prefaced each of my Molecule commands with azure-keyvault like this
 example:
 
-> `aws-vault exec my_aws_profile -- molecule check`
+> `azure-keyvault exec my_azurerm_profile -- molecule check`
 
 ## Running Molecule Tests
 
