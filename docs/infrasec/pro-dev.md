@@ -27,11 +27,11 @@ We would appreciate it if you would also share a summary and who you think that 
 ### Suggested courses for L2+
 
 | Title | Est Cost | Topic | Solution8er that tried it |
-| :---- | -------- | ----- | --------------------- |
+| :---- | -------- | ----- | ------------------------- |
 
 ### Suggested courses for L3+
 
-| Title                                                                         | Est Cost | Topic                  | Solution8er that tried it                                   |
+| Title                                                                         | Est Cost | Topic                  | Solution8er that tried it                               |
 | :---------------------------------------------------------------------------- | -------- | ---------------------- | ------------------------------------------------------- |
 | [Lifelabs Effective 1:1s workshop](https://lifelabslearning.com/individuals/) | $250     | Catalytic skills: 1:1s | Clint, [Eady](#effective-11s-eady), Erik, Rebecca, Reid |
 

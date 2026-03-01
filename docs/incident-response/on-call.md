@@ -87,7 +87,7 @@ you are expected to fulfill.
   have this covered.
 - If you know you will be away for an extended period during an on-call
   shift, it is *your* responsibility to find someone to cover your shift.
-  If you are unable to, talk to your lead and see if they can help.  If
+  If you are unable to, talk to your lead and see if they can help. If
   you will be gone for more than a day or two, it may be easiest to swap
   the entire shift with someone. PagerDuty allows you to schedule these
   with [overrides](https://community.pagerduty.com/t/creating-a-schedule-override/850).
@@ -143,8 +143,8 @@ which is set for each engineer individually that determines how they will
 be notified if they receive an alert.
 
 - PagerDuty and similar products can be set up to send notifications to
-  Microsoft Teams for each alert; we recommend doing so. Using the [PagerDuty
-  integration](https://www.pagerduty.com/docs/guides/microsoft teams-integration-guide/)
+  Microsoft Teams for each alert; we recommend doing so. Using the \[PagerDuty
+  integration\](https://www.pagerduty.com/docs/guides/microsoft teams-integration-guide/)
   will also allow engineers to acknowledge or resolve alerts from Microsoft Teams
   if they so choose.
 - Engineers should have notification policies set to ensure that they

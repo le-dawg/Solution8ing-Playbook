@@ -31,4 +31,3 @@ If you are adding new content, please follow our
 you notice that it does not adhere to our templates format, please update the
 format in a separate PR if you have time. If the work needs to be discussed,
 please reach out in the appropriate channel to plan and prioritize the work.
-

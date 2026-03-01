@@ -36,5 +36,5 @@ These are the best practices gleaned from online resources and our experiences o
 ## External links
 
 1. [Azure enterprise-scale architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/)
-2. [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/overview)
-3. [Azure subscription decision guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+1. [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/overview)
+1. [Azure subscription decision guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/subscriptions/)

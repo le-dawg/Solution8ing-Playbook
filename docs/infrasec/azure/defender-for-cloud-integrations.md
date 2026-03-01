@@ -32,9 +32,9 @@ You can create a Logic App that is triggered by an Azure Monitor alert and creat
 
 Once you've done all of this set up, you'll want to test your work! You can generate sample alerts in Microsoft Defender for Cloud to test your integrations.
 
-1.  In the Azure portal, navigate to Microsoft Defender for Cloud.
-2.  Go to the **Security alerts** page.
-3.  Click on the **Sample alerts** button.
-4.  Select the subscription you want to create the sample alerts in and click **Create sample alerts**.
+1. In the Azure portal, navigate to Microsoft Defender for Cloud.
+1. Go to the **Security alerts** page.
+1. Click on the **Sample alerts** button.
+1. Select the subscription you want to create the sample alerts in and click **Create sample alerts**.
 
 This will generate a number of sample alerts that should trigger your Logic Apps and send notifications to Microsoft Teams and PagerDuty.

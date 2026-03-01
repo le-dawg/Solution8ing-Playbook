@@ -328,7 +328,6 @@ separate channel, then you have too many alerts.
 [alert fatigue]: https://en.wikipedia.org/wiki/Alarm_fatigue
 [artifact storage]: https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts
 [bitbucket pipelines]: https://bitbucket.org/product/features/pipelines
-[circleci]: https://circleci.com
 [github actions]: https://github.com/features/actions
 [nsa_securing]: https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF
 [steel cable]: https://playbook.solution8.works/docs/01-how-we-execute/06-steel-cable/
