@@ -51,21 +51,33 @@ We build and deploy these docs using [Docusaurus](https://docusaurus.io/), a Rea
 
 ### Install Dependencies
 
-Choose one of the following methods to install the dependencies.
+#### Homebrew Rule
+
+Use Homebrew only for CLI tools (git, uv, volta, pre-commit). Never use Homebrew for language runtimes (node, python, ruby).
 
 #### Manually
 
 ```
 brew update
-brew install nodenv
-brew install pre-commit
+brew install volta uv pre-commit
 pre-commit install
 ```
+
+Volta is the supported Node runtime manager. This repo pins Node and npm in `package.json` (via `volta pin node@20` and `volta pin npm`) so that `sudo npm install -g` is never needed on macOS, avoiding permission breakage.
+
+Python tooling uses `uv`. Never use `/usr/bin/python3` (Apple's System Python). Create a virtual environment before running Python tooling:
+
+```
+uv venv
+source .venv/bin/activate
+```
+
+For more guidance, see [docs/developing/macos-environment-setup.md](./docs/developing/macos-environment-setup.md).
 
 ### Run the server
 
 ```
-npm install
+npm install --legacy-peer-deps
 npm start
 ```
 

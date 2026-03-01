@@ -115,5 +115,5 @@ decisions and resources might here appear as well.}
 -->
 
 [example]: https://github.com/le-dawg/terraform-module-template/pull/96
-[modules]: https://github.com/orgs/le-dawg/repositories?q=terraform+in%3Aname&type=all
 [le-dawg-ci]: https://github.com/le-dawg/legendary-waddle/tree/main/le-dawg-ci
+[modules]: https://github.com/orgs/le-dawg/repositories?q=terraform+in%3Aname&type=all

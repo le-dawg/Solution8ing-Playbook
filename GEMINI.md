@@ -4,9 +4,9 @@ This project is a Docusaurus-based website that serves as the **Solution8 Engine
 
 The main technologies used are:
 
-*   **Docusaurus:** A static site generator for building documentation websites.
-*   **React:** A JavaScript library for building user interfaces.
-*   **Markdown:** A lightweight markup language for creating formatted text.
+- **Docusaurus:** A static site generator for building documentation websites.
+- **React:** A JavaScript library for building user interfaces.
+- **Markdown:** A lightweight markup language for creating formatted text.
 
 The website is available at [https://le-dawg.github.io/Solution8ing-Playbook/](https://le-dawg.github.io/Solution8ing-Playbook/).
 
@@ -14,35 +14,35 @@ The website is available at [https://le-dawg.github.io/Solution8ing-Playbook/](h
 
 To get the project up and running locally, follow these steps:
 
-1.  **Install dependencies:**
+1. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
-2.  **Start the development server:**
+1. **Start the development server:**
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
-    This will start a local development server and open up a browser window. The site will be available at `http://localhost:4000`.
+   This will start a local development server and open up a browser window. The site will be available at `http://localhost:4000`.
 
-3.  **Build the project:**
+1. **Build the project:**
 
-    ```bash
-    npm run build
-    ```
+   ```bash
+   npm run build
+   ```
 
-    This will generate a static production build of the website in the `build` directory.
+   This will generate a static production build of the website in the `build` directory.
 
-4.  **Serve the production build:**
+1. **Serve the production build:**
 
-    ```bash
-    npm run serve
-    ```
+   ```bash
+   npm run serve
+   ```
 
-    This will serve the production build of the website. The site will be available at `http://localhost:4000`.
+   This will serve the production build of the website. The site will be available at `http://localhost:4000`.
 
 # Development Conventions
 

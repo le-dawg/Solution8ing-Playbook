@@ -116,7 +116,6 @@ Terraform:
 
 You may want to set up others as well, but these are probably the ones you want as soon as possible.
 
-
 ### Atlantis
 
 If you plan to use [Atlantis](https://runatlantis.io) to maintain your

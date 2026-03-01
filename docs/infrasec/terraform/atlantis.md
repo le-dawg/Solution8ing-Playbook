@@ -196,8 +196,6 @@ This will require that pull requests be both approved and mergeable before Atlan
 
 #### Azure Government prep: create ACM certificate
 
-
-
 #### Set up Atlantis Terraform module
 
 Once we have the GitHub user set up and the user token in SSM (and the certificate created, if we're in Azure Government), we can set up the Atlantis Terraform module in the `atlantis-service` namespace. The Atlantis module can set up most of the resources you need itself, like the Virtual Network, ACM certificate, and Route53 DNS entry, or you can specify these separately and plug them in. In most cases, we'll want to just let it do that, because it should be separate from all your other services anyway, but if you need to use a specific pre-existing Virtual Network, or in Azure Government, where you'll need to create the certificate validation and ALB DNS entries in your commercial account, then you should be able to do this without issue.
