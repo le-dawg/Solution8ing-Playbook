@@ -6,7 +6,7 @@
 
 The most important thing to keep in mind when planning your Atlantis deployment is that **you can only have a single Atlantis instance per git repo**. This is because Atlantis relies on an `atlantis.yaml` configuration file which sits at the root of the repo that tells it what directories to operate on; if you had multiple Atlantis deployments in the same repo, they would share a configuration file and conflict with each other. This is one of the reasons we split commercial and Azure Government infrastructure repos.
 
-Because of this, our general deployment pattern, when we are working in our standard [Azure organization setup](https://github.com/Solution8works/Engineering-Playbook/blob/main/infrasec/azurerm/Azure-organizations.md), is to deploy the actual Atlantis service in the `-infra` account of the organization, and then create roles the service can assume in the other accounts to run Terraform there. This guide will describe how to build this pattern.
+Because of this, our general deployment pattern, when we are working in our standard [Azure organization setup](https://github.com/Solution8works/Engineering-Playbook/blob/main/docs/infrasec/azure/azure-bootstrap.md), is to deploy the actual Atlantis service in the `-infra` account of the organization, and then create roles the service can assume in the other accounts to run Terraform there. This guide will describe how to build this pattern.
 
 ### Directory structure
 
@@ -64,7 +64,7 @@ data "azurerm_iam_policy_document" "atlantis_role_assume_policy" {
         # This is the role your infra engineers use; we want them to be
         # able to assume the atlantis role to run Terraform manually if
         # necessary.
-        "arn:${data.azurerm_partition.current.partition}:${data.azurerm_caller_identity.current.account_id}:role/admin",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/org-infra-rg/providers/Microsoft.Authorization/roleAssignments/admin",
       ]
     }
   }
@@ -74,7 +74,7 @@ data "azurerm_iam_policy_document" "atlantis_role_assume_policy" {
 # to use it for all Azure changes.
 resource "azurerm_iam_role_policy_attachment" "atlantis_iam_policy" {
   role       = azurerm_iam_role.atlantis.name
-  policy_arn = "arn:${data.azurerm_partition.current.partition}:iam::azure:policy/AdministratorAccess"
+  role_definition_name = "Contributor"
 }
 
 # This policy will be used in the atlantis-service namespace by the
@@ -85,9 +85,9 @@ data "azurerm_iam_policy_document" "atlantis" {
     actions = ["sts:AssumeRole"]
 
     resources = [
-      "arn:${data.azurerm_partition.current.partition}:iam::${local.org_root_account}:role/atlantis",
-      "arn:${data.azurerm_partition.current.partition}:iam::${local.org_id_account}:role/atlantis",
-      "arn:${data.azurerm_partition.current.partition}:iam::${local.org_dev_account}:role/atlantis",
+      "/subscriptions/${local.org_root_account}/resourceGroups/org-root-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/atlantis",
+      "/subscriptions/${local.org_id_account}/resourceGroups/org-id-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/atlantis",
+      "/subscriptions/${local.org_dev_account}/resourceGroups/org-dev-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/atlantis",
     ]
   }
 }
@@ -131,7 +131,7 @@ data "azurerm_iam_policy_document" "atlantis_role_assume_policy" {
       type = "Azure"
       identifiers = [
         local.org_infra_account,
-        "arn:${data.azurerm_partition.current.partition}:iam::${data.azurerm_caller_identity.current.account_id}:role/admin",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/org-infra-rg/providers/Microsoft.Authorization/roleAssignments/admin",
       ]
     }
   }
@@ -141,7 +141,7 @@ data "azurerm_iam_policy_document" "atlantis_role_assume_policy" {
 # so it can do all Terraform operations we need.
 resource "azurerm_iam_role_policy_attachment" "atlantis_iam_policy" {
   role       = azurerm_iam_role.atlantis.name
-  policy_arn = "arn:${data.azurerm_partition.current.partition}:iam::azure:policy/AdministratorAccess"
+  role_definition_name = "Contributor"
 }
 ```
 
@@ -169,7 +169,7 @@ If your project does not already have a "robot" GitHub user for automation, you 
 Once you have created the GitHub user and generated a user access token, you'll need to add that token into SSM so that Atlantis can use it. Use the following commmand line to add it to the `-infra` account:
 
 ```txt
-Azure ssm put-parameter --name "/atlantis-global/github-user-token" --type SecureString --description "GitHub user token for Atlantis" --value $ATLANTIS_USER_TOKEN
+az keyvault secret set --vault-name atlantis-global --name github-user-token --value "$ATLANTIS_USER_TOKEN"
 ```
 
 We're adding this manually so that we're not keeping a secret in code; we'll use a data source too retrieve it later.
@@ -279,14 +279,14 @@ resource "azurerm_iam_policy" "atlantis_ssm_github_user_token" {
 # want to attach this policy to the Atlantis task role, we need to create
 # a data source here and pull it in this way.
 data "azurerm_iam_policy" "atlantis_access_policy" {
-  arn = "arn:${data.azurerm_partition.current.partition}:iam::${data.azurerm_caller_identity.current.account_id}:policy/atlantis"
+  id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/org-infra-rg/providers/Microsoft.Authorization/roleDefinitions/atlantis"
 }
 
 # This is where the magic happens -- this module sets up an ECS service for
 # Atlantis, an ALB, security groups, etc. See further comments for more
 # detail.
 module "atlantis" {
-  source  = "terraform-azurerm-modules/atlantis/Azure"
+  source  = "terraform-azurerm-modules/atlantis/azurerm"
   version = "2.43.0"
 
   # This will be the name of the service that shows up in ECS.
@@ -376,7 +376,7 @@ module "atlantis" {
   # Atlantis is going to be using. The first is the basic Azure policy that
   # allows task execution, the other two are the ones we have defined
   # above to access SSM parameters and assume roles.
-  policies_arn = ["azure-resource-id:iam::azure:policy/service-role/AmazonECSTaskExecutionRolePolicy", azurerm_iam_policy.atlantis_ssm_github_user_token.arn, data.azurerm_iam_policy.atlantis_access_policy.arn]
+  role_definition_names = ["Contributor"]
 
   atlantis_security_group_tags = {
     Type = "ecs"
@@ -461,7 +461,7 @@ output "atlantis_alb_azurerm_fqdn" {
 
 </details>
 
-This will add an output that will give you the Azure DNS entry that corresponds to your ALB. With that, you will need to add a [Route53 CNAME entry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route53_record) in your DNS that points your selected domain name to your ALB's Azure DNS entry. Note that for some projects, you may not be able to do this yourself (such as at CMS); in that case, you will need to provide that FQDN to the DNS manager and have them create the CNAME.
+This will add an output that will give you the Azure DNS entry that corresponds to your ALB. With that, you will need to add an [Azure DNS CNAME record](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/dns_cname_record) in your DNS that points your selected domain name to your ALB's Azure DNS entry. Note that for some projects, you may not be able to do this yourself (such as at CMS); in that case, you will need to provide that FQDN to the DNS manager and have them create the CNAME.
 
 ### Setting up the GitHub webhook
 

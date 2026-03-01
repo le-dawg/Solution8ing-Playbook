@@ -56,19 +56,21 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 ### Other Examples
 
 - [terraform-azurerm-alb-web-containers](https://github.com/Solution8works/terraform-azurerm-alb-web-containers)
-- [terrraform-azure-ecs-service](https://github.com/Solution8works/terraform-azurerm-ecs-service)
+- [terraform-azure-ecs-service](https://github.com/Solution8works/terraform-azurerm-ecs-service)
 - [terraform-azurerm-logs](https://github.com/Solution8works/terraform-azurerm-logs/)
 
 ## Run manually
 
 To run these tests manually against the `Solution8works-ci` Azure account you'll need Azure access in our Azure organization. You'll need help from someone in #infrasec and must follow the [setup instructions](https://github.com/Solution8works/legendary-waddle/blob/master/docs/how-to/setup-new-user.md#setup-new-iam-user).
 
-You'll also need to install `azure-keyvault` and ensure your `./azure/config` file is setup correctly.
+You'll also need Azure CLI installed and an authenticated session (`az login`) configured for your target subscription.
 
 In most of our modules, there is a `makefile` that defines `test` so you'll run the following from the root of the repo you're testing:
 
 ```sh
-Azure_VAULT_KEYCHAIN_NAME=login azure-keyvault exec Solution8works-ci -- make test
+az login
+az account set --subscription Solution8works-ci
+make test
 ```
 
 ## Configure CircleCi to run the tests automatically
@@ -94,10 +96,8 @@ terratest:
         - go-mod-sources-v1-{{ checksum "go.sum" }}
     - run:
         command: |
-          temp_role=$(Azure sts assume-role --role-arn azure-resource-id:iam::313564602749:role/circleci --role-session-name circleci)
-          export Azure_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
-          export Azure_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
-          export Azure_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
+          temp_token=$(az account get-access-token --query accessToken --output tsv)
+          export AZURE_ACCESS_TOKEN=$temp_token
           make test
         name: Assume role, run pre-commit and run terratest
     - save_cache:

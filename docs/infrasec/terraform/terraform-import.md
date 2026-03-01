@@ -18,17 +18,19 @@ resource.
 
 ## Importing a resource as a raw Terraform resource
 
-In this case, we're going to be importing an existing Azure Blob Storage from Azure
-named `my-s3-bucket` into our Terraform deployment as a Terraform
-`azurerm_s3_bucket` resource.
+In this case, we're going to be importing an existing Azure Blob Storage account
+named `mystorageacct001` into our Terraform deployment as a Terraform
+`azurerm_storage_account` resource.
 
 1. Write the Terraform code that will describe this resource in your
    infrastructure. For our example, we would add this to our Terraform
    infrastructure:
 
    ```hcl
-   resource "azurerm_s3_bucket" "my_s3_bucket" {
-     bucket = "my-s3-bucket"
+   resource "azurerm_storage_account" "my_storage_account" {
+     name                     = "mystorageacct001"
+     account_tier             = "Standard"
+     account_replication_type = "LRS"
 
      tags = {
        Name        = "My Bucket"
@@ -40,20 +42,20 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 1. Run `terraform import` in the namespace that file is in to import the
    resource. The `import` command requires two arguments; the `ADDRESS` and
    the `ID`. The `ADDRESS` is the terraform resource we just described, so
-   `azurerm_s3_bucket.my_s3_bucket` in the example above. The `ID` depends on
+   `azurerm_storage_account.my_storage_account` in the example above. The `ID` depends on
    the resource we're importing; you can find out at the bottom of the
    documentation for that resource in the Terraform docs. You can see in the
    docs for
-   [`azurerm_s3_bucket`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/s3_bucket#import)
-   that for that resource, it's just the bucket name. So we would run this
+   [`azurerm_storage_account`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account#import)
+   that for that resource, it's just the storage account resource ID. So we would run this
    command:
 
    ```bash
-   $ terraform import azurerm_s3_bucket.my_s3_bucket my-s3-bucket
-   azurerm_s3_bucket.my_s3_bucket: Importing from ID "my-s3-bucket"...
-   azurerm_s3_bucket.my_s3_bucket: Import prepared!
-     Prepared azurerm_s3_bucket for import
-   azurerm_s3_bucket.my_s3_bucket: Refreshing state... [id=my-s3-bucket]
+   $ terraform import azurerm_storage_account.my_storage_account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct001
+   azurerm_storage_account.my_storage_account: Importing from ID "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct001"...
+   azurerm_storage_account.my_storage_account: Import prepared!
+     Prepared azurerm_storage_account for import
+   azurerm_storage_account.my_storage_account: Refreshing state... [id=/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct001]
 
    Import successful!
 
@@ -77,35 +79,27 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 
    Terraform will perform the following actions:
 
-     # azurerm_s3_bucket.my_s3_bucket will be updated in-place
-     ~ resource "azurerm_s3_bucket" "my_s3_bucket" {
-         + acl                         = "private"
-           arn                         = "azure-resource-id:s3:::my-s3-bucket"
-           bucket                      = "my-s3-bucket"
-           bucket_domain_name          = "my-s3-bucket.blob.core.windows.net"
-           bucket_regional_domain_name = "my-s3-bucket.blob.core.windows.net"
-         + force_destroy               = false
-           hosted_zone_id              = "Z3BJ5K6RIION3M"
-           id                          = "my-s3-bucket"
-           region                      = "us-west-2"
-           request_payer               = "BucketOwner"
+     # azurerm_storage_account.my_storage_account will be updated in-place
+     ~ resource "azurerm_storage_account" "my_storage_account" {
+         + account_kind             = "StorageV2"
+           id                       = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct001"
+           name                     = "mystorageacct001"
+           primary_blob_endpoint    = "https://mystorageacct001.blob.core.windows.net/"
+           primary_web_endpoint     = "https://mystorageacct001.z13.web.core.windows.net/"
+           location                 = "westus2"
          ~ tags                        = {
              + "Environment" = "Dev"
                "Name"        = "My Bucket"
            }
 
-           versioning {
-               enabled    = false
-               mfa_delete = false
-           }
-       }
+        }
 
    Plan: 0 to add, 1 to change, 0 to destroy.
    ```
 
    Note that it is only changing an existing resource. Also note that the
-   `Name` tag already existed on the existing bucket, so that will not be
-   changed, but that we're adding the `Environment` tag to the bucket. To
+   `Name` tag already existed on the existing storage account, so that will not be
+   changed, but that we're adding the `Environment` tag to the storage account. To
    make these changes, we'd run a `terraform apply` and then we should have
    a clean plan after that. We can then use this resource as if it had
    always been in Terraform.
@@ -115,14 +109,14 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 It's also possible to import an existing resource as a component of a
 Terraform module, we just have to change our Terraform code and the
 `ADDRESS` component of the `terraform import` command. So if we wanted
-to use the Solution8 `terraform-azurerm-s3-private-bucket` module for our bucket
-instead of the raw S3 resource, we'd have Terraform code like this:
+to use the Solution8 `terraform-azurerm-storage-private-container` module for our storage account
+instead of the raw resource, we'd have Terraform code like this:
 
 ```hcl
-module "my_s3_bucket" {
-  source         = "Solution8works/s3-private-bucket/Azure"
-  bucket         = "my-s3-bucket"
-  logging_bucket = "my-logging-bucket"
+module "my_storage_account" {
+  source         = "Solution8works/storage-private-container/azurerm"
+  storage_account_name = "mystorageacct001"
+  logging_storage_account = "myloggingacct001"
 
   tags = {
     Name        = "My Bucket"
@@ -134,19 +128,19 @@ module "my_s3_bucket" {
 Then we would run this command:
 
 ```bash
-$ terraform import module.my_s3_bucket.azurerm_s3_bucket.private_bucket my-s3-bucket
+$ terraform import module.my_storage_account.azurerm_storage_account.private_storage_account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-rg/providers/Microsoft.Storage/storageAccounts/mystorageacct001
 ```
 
 We're getting that `ADDRESS` by looking at the code of the module and
 seeing where it is actually defining that resource that we want to import;
 in this case, it's the
-[`main.tf`](https://github.com/Solution8works/terraform-azurerm-s3-private-bucket/blob/master/main.tf)
+[`main.tf`](https://github.com/Solution8works/terraform-azurerm-storage-private-container/blob/master/main.tf)
 file, on this line:
 
 ```hcl
-resource "azurerm_s3_bucket" "private_bucket" {
-  bucket        = local.bucket_id
-  acl           = "private"
+resource "azurerm_storage_account" "private_storage_account" {
+  name                     = local.storage_account_name
+  account_tier             = "Standard"
 
 ...
 ```
