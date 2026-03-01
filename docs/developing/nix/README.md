@@ -58,7 +58,7 @@ docker or trying to find a way to run your pre-commit hooks inside
 docker.
 
 Running git inside docker has problems because it makes using a hardware
-device for code signing like a yubikey much more complicated and difficult.
+device for code signing like a hardware security key much more complicated and difficult.
 
 Running pre-commit inside docker is not a supported configuration by
 pre-commit which takes us even farther away from the well worn path.
@@ -277,10 +277,10 @@ In the main profiles section we mention having profiles at a global and
 repo level. You can also have profiles on a per-project basis.
 
 E.g. for MilMove, you might want a profile that contains things like
-`aws-vault`, `chamber`, etc. which spans more than just the `mymove`
+`azure-keyvault`, `chamber`, etc. which spans more than just the `mymove`
 repo. On the other hand, you may not want to use a global profile
 (like the default one mentioned in the next section) because you may
-need different versions of `aws-vault` for different projects.
+need different versions of `azure-keyvault` for different projects.
 
 #### Creating a Profile
 

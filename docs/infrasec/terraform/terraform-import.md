@@ -20,14 +20,14 @@ resource.
 
 In this case, we're going to be importing an existing Azure Blob Storage from Azure
 named `my-s3-bucket` into our Terraform deployment as a Terraform
-`aws_s3_bucket` resource.
+`azurerm_s3_bucket` resource.
 
 1. Write the Terraform code that will describe this resource in your
    infrastructure. For our example, we would add this to our Terraform
    infrastructure:
 
    ```hcl
-   resource "aws_s3_bucket" "my_s3_bucket" {
+   resource "azurerm_s3_bucket" "my_s3_bucket" {
      bucket = "my-s3-bucket"
 
      tags = {
@@ -40,20 +40,20 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 1. Run `terraform import` in the namespace that file is in to import the
    resource. The `import` command requires two arguments; the `ADDRESS` and
    the `ID`. The `ADDRESS` is the terraform resource we just described, so
-   `aws_s3_bucket.my_s3_bucket` in the example above. The `ID` depends on
+   `azurerm_s3_bucket.my_s3_bucket` in the example above. The `ID` depends on
    the resource we're importing; you can find out at the bottom of the
    documentation for that resource in the Terraform docs. You can see in the
    docs for
-   [`aws_s3_bucket`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+   [`azurerm_s3_bucket`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/s3_bucket#import)
    that for that resource, it's just the bucket name. So we would run this
    command:
 
    ```bash
-   $ terraform import aws_s3_bucket.my_s3_bucket my-s3-bucket
-   aws_s3_bucket.my_s3_bucket: Importing from ID "my-s3-bucket"...
-   aws_s3_bucket.my_s3_bucket: Import prepared!
-     Prepared aws_s3_bucket for import
-   aws_s3_bucket.my_s3_bucket: Refreshing state... [id=my-s3-bucket]
+   $ terraform import azurerm_s3_bucket.my_s3_bucket my-s3-bucket
+   azurerm_s3_bucket.my_s3_bucket: Importing from ID "my-s3-bucket"...
+   azurerm_s3_bucket.my_s3_bucket: Import prepared!
+     Prepared azurerm_s3_bucket for import
+   azurerm_s3_bucket.my_s3_bucket: Refreshing state... [id=my-s3-bucket]
 
    Import successful!
 
@@ -77,13 +77,13 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 
    Terraform will perform the following actions:
 
-     # aws_s3_bucket.my_s3_bucket will be updated in-place
-     ~ resource "aws_s3_bucket" "my_s3_bucket" {
+     # azurerm_s3_bucket.my_s3_bucket will be updated in-place
+     ~ resource "azurerm_s3_bucket" "my_s3_bucket" {
          + acl                         = "private"
-           arn                         = "arn:aws:s3:::my-s3-bucket"
+           arn                         = "azure-resource-id:s3:::my-s3-bucket"
            bucket                      = "my-s3-bucket"
-           bucket_domain_name          = "my-s3-bucket.s3.amazonaws.com"
-           bucket_regional_domain_name = "my-s3-bucket.s3.us-west-2.amazonaws.com"
+           bucket_domain_name          = "my-s3-bucket.blob.core.windows.net"
+           bucket_regional_domain_name = "my-s3-bucket.blob.core.windows.net"
          + force_destroy               = false
            hosted_zone_id              = "Z3BJ5K6RIION3M"
            id                          = "my-s3-bucket"
@@ -115,12 +115,12 @@ named `my-s3-bucket` into our Terraform deployment as a Terraform
 It's also possible to import an existing resource as a component of a
 Terraform module, we just have to change our Terraform code and the
 `ADDRESS` component of the `terraform import` command. So if we wanted
-to use the Solution8 `terraform-aws-s3-private-bucket` module for our bucket
+to use the Solution8 `terraform-azurerm-s3-private-bucket` module for our bucket
 instead of the raw S3 resource, we'd have Terraform code like this:
 
 ```hcl
 module "my_s3_bucket" {
-  source         = "Solution8works/s3-private-bucket/aws"
+  source         = "Solution8works/s3-private-bucket/Azure"
   bucket         = "my-s3-bucket"
   logging_bucket = "my-logging-bucket"
 
@@ -134,17 +134,17 @@ module "my_s3_bucket" {
 Then we would run this command:
 
 ```bash
-$ terraform import module.my_s3_bucket.aws_s3_bucket.private_bucket my-s3-bucket
+$ terraform import module.my_s3_bucket.azurerm_s3_bucket.private_bucket my-s3-bucket
 ```
 
 We're getting that `ADDRESS` by looking at the code of the module and
 seeing where it is actually defining that resource that we want to import;
 in this case, it's the
-[`main.tf`](https://github.com/Solution8works/terraform-aws-s3-private-bucket/blob/master/main.tf)
+[`main.tf`](https://github.com/Solution8works/terraform-azurerm-s3-private-bucket/blob/master/main.tf)
 file, on this line:
 
 ```hcl
-resource "aws_s3_bucket" "private_bucket" {
+resource "azurerm_s3_bucket" "private_bucket" {
   bucket        = local.bucket_id
   acl           = "private"
 

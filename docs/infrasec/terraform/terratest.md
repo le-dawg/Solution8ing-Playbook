@@ -55,20 +55,20 @@ func TestTerraformAwsEcrRepo(t *testing.T) {
 
 ### Other Examples
 
-- [terraform-aws-alb-web-containers](https://github.com/Solution8works/terraform-aws-alb-web-containers)
-- [terrraform-aws-ecs-service](https://github.com/Solution8works/terraform-aws-ecs-service)
-- [terraform-aws-logs](https://github.com/Solution8works/terraform-aws-logs/)
+- [terraform-azurerm-alb-web-containers](https://github.com/Solution8works/terraform-azurerm-alb-web-containers)
+- [terrraform-azure-ecs-service](https://github.com/Solution8works/terraform-azurerm-ecs-service)
+- [terraform-azurerm-logs](https://github.com/Solution8works/terraform-azurerm-logs/)
 
 ## Run manually
 
 To run these tests manually against the `Solution8works-ci` Azure account you'll need Azure access in our Azure organization. You'll need help from someone in #infrasec and must follow the [setup instructions](https://github.com/Solution8works/legendary-waddle/blob/master/docs/how-to/setup-new-user.md#setup-new-iam-user).
 
-You'll also need to install `aws-vault` and ensure your `./aws/config` file is setup correctly.
+You'll also need to install `azure-keyvault` and ensure your `./azure/config` file is setup correctly.
 
 In most of our modules, there is a `makefile` that defines `test` so you'll run the following from the root of the repo you're testing:
 
 ```sh
-Azure_VAULT_KEYCHAIN_NAME=login aws-vault exec Solution8works-ci -- make test
+Azure_VAULT_KEYCHAIN_NAME=login azure-keyvault exec Solution8works-ci -- make test
 ```
 
 ## Configure CircleCi to run the tests automatically
@@ -94,7 +94,7 @@ terratest:
         - go-mod-sources-v1-{{ checksum "go.sum" }}
     - run:
         command: |
-          temp_role=$(aws sts assume-role --role-arn arn:aws:iam::313564602749:role/circleci --role-session-name circleci)
+          temp_role=$(Azure sts assume-role --role-arn azure-resource-id:iam::313564602749:role/circleci --role-session-name circleci)
           export Azure_ACCESS_KEY_ID=$(echo $temp_role | jq .Credentials.AccessKeyId | xargs)
           export Azure_SECRET_ACCESS_KEY=$(echo $temp_role | jq .Credentials.SecretAccessKey | xargs)
           export Azure_SESSION_TOKEN=$(echo $temp_role | jq .Credentials.SessionToken | xargs)
@@ -134,7 +134,7 @@ You can run the rotator script manually in your local environment to populate th
 Rotate the keys via
 
 ```
-aws-vault exec Solution8works-id -- rotator rotate -f ./rotate.yaml -y
+azure-keyvault exec Solution8works-id -- rotator rotate -f ./rotate.yaml -y
 ```
 
 Instructions to install rotator can be found [here](https://github.com/chanzuckerberg/rotator).
@@ -160,7 +160,7 @@ set -eu -o pipefail
 
 go_test_output="/tmp/go-test.out"
 
-go test -short -count 1 -v -timeout 90m github.com/Solution8works/terraform-aws-logs/test/... | tee "${go_test_output}"
+go test -short -count 1 -v -timeout 90m github.com/Solution8works/terraform-azurerm-logs/test/... | tee "${go_test_output}"
 
 # Check if we are running tests inside of CircleCI by checking for a $CIRCLECI
 # environment variable. The dash after $CIRCLECI substitutes a null value if
