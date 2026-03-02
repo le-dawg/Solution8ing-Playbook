@@ -34,6 +34,7 @@ These are the best practices gleaned from online resources and our experiences o
 - **Do not use a CI/CD pipeline to deploy infrastructure:** Ideally, we'd always use a CI/CD pipeline to deploy infrastructure as code. This helps to ensure that your infrastructure is deployed in a consistent and repeatable way. But this breaks down easily in Azure, when the state of the Control Plane cannot be reliably queried due to, for instance, limited permissions for our users in a client's tenant. Therefore, unless we have tested in conditions that are very close to the real state of the production system, it is better to wait it out. This is especially true when working in highly regulated environments, where change requests take long. So, in a nutshell:
   - Greenfield Project (no Azure systems at all): go right ahead with IaC!
   - Brownfield Project (existing systems in Azure): ask for the highest possible permissions in a separate subscription or directory, even if temporary and eligible. If the client is in a highly regulated environment, avoid this at all costs unless you have an SME on the client team that has at least 3-years of full time experience and the certs in Azure DevOps.
+
 ## External links
 
 1. [Azure enterprise-scale architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/)

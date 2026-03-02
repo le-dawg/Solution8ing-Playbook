@@ -73,12 +73,11 @@ docker and a native development environment.
 
 Homebrew has more packages than `nix`, and installs them globally. For
 certain things, that might work great. However, that doesn't give
-local, non-cloud projects reproducible installs.
+projects reproducible installs.
 
 One other difference is that versions of particular packages may be more
 up to date in one or the other. E.g. as of this writing, homebrew's
 `watchman` version is `2026.01.12.00` but `nix` is on `2026.01.19.00`, which can be an issue if not careful.
-
 
 ## Installation
 
