@@ -1,21 +1,29 @@
 # AppEng Decision Process
 
 Application Engineers are staffed sparsely across projects at Solution8.
-This means engineers are often working on unrelated
-products, code bases and technologies.
+This means engineers are often working on unrelated products, code bases and technologies.
+
 Because of this,
-we've created some intentional structure
-to facilitate decision making,
-share what has/hasn't gone well,
-and incorporate common patterns into our main playbook.
-Due to the variance in projects,
-we don't expect a one-size-fits-all mentality to decision making.
-However, we do hope to account for some prominent cases
-and highlight when certain applications make sense.
+we rely on an ever evolving set of intentional structure
+to facilitate decision making, share what has/hasn't gone well, and incorporate common patterns into our main playbook.
+
+Due to the variance in projects, we don't expect a one-size-fits-all mentality to decision making.
+However, we do hope to account for some prominent cases and highlight when certain applications make sense.
+
+## What To Decide
+
+<Expand> 
+- AI greatly accelerates research as well as artifact production, greatly lowering the cost of iterating on anything that can be expressed in natural language or as structured text
+- therefore, solution architecture can be treated as a continuous process whose artifacts can be versioned
+- this means that we can and should treat solution architecture as a continuously changing aspect of our solutions, just like application code
+- This makes decvision making around architecture much easier to track in the form of ADRs
+- therefore the decision surface is as follows:
+   - Initial
+</Expand> 
 
 ## How to Make a Decision
 
-At it's core decision making process is as follows:
+At it's core, the FULL decision making process (to be used with very large Brownfield (aka. pre-existing) projects) is as follows:
 
 1. Identify a decision made on a project that is applicable to the whole practice.
 1. Write an Architectural Decision Record (ADR) justifying it.
@@ -25,7 +33,15 @@ At it's core decision making process is as follows:
 1. (Optional) Hold a [meeting](#review-meeting) for review.
 1. Commit the [ADR](./adrs) and create [implementation documentation](#output).
 
-## Writing an ADR
+In case of smaller projects, where tracking Architecture is not a core need, a reduced best practice has emerged:
+
+1. Identify a decision made on a project that is applicable to the whole practice.
+1. Write an Architectural Decision Record (ADR) justifying it.
+1. Propose it in Microsoft Teams in the #techcircle for all to review. Make sure all information required to process it is included, ideally using Github Issues or PRs to do so
+1. Once a Solution Architect greenlughts the proposal:
+   1. Commit the [ADR](./adrs) and create [implementation documentation](#output).
+
+## Writing an ADR (TBD: Publish A Skill that forms part of a web of subagents that all embody the agentic software factory)
 
 ADRs are a lightweight format that allows us
 to identify use cases and solutions for problems we face in our engineering.
