@@ -12,8 +12,8 @@ and Solution8 organization
 While we're here to focus on the "why",
 taking a step back and focusing on the "who"
 is a prequisite to making decision.
-Within the context of an ADR,
-it's important to enumerate who a decision benefits
+
+Within the context of an ADR, it's important to enumerate who a decision benefits
 and draw back to that group within decision factors.
 Be curious about what that group's needs are
 and how the values in this guide intertwine with them.
@@ -80,12 +80,7 @@ prefacing with this statement:
 
 ### Learnable
 
-Due to the nature of contracting,
-our teams are often shifting
-and working on different services
-and projects.
-In order to facilitate these changes smoothly
-we must build software that is easily understood
+We must build software that is easily understood
 and modified.
 In addition,
 to be a successful organization in the long term,
