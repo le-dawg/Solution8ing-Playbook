@@ -16,7 +16,7 @@ We are here to apply our skills and knowledge of software systems development to
 
 - Writing code is a small part of delivering a user experience. When doing it, think about the other parts, such as how it will be delivered, used, maintained and kept safe.
 - The code we deliver is only as good as the design it embodies, the user experiences it supports and how available it is. Without the other practices we are just moving characters around a screen.
-- [Let the computer do the work](https://Solution8.works/blog/2017/11/3/tabs-vs-spaces-a-tale-of-asking-the-wrong-questions)
+- Let the computer do the work
 - Make space for a diversity of voices. If someone disagrees with you there is a fair chance that you are wrong.
 - We are only as good as the software engineers we bring into the business.
 - Our Opinions are informed by our experience. When something works for us we will continue to do it until experience tells us otherwise. If our client disagrees with them, there is a non-zero probability that we misunderstood the Client’s problem; their experiences may be different than ours.
